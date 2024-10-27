@@ -1,5 +1,6 @@
 import os
 import re  # 用于从文件名中提取编号
+import time
 import numpy as np
 import torch
 from torch.utils.data import Dataset, DataLoader
@@ -11,20 +12,29 @@ from MinkowskiEngine import utils as ME_utils
 import numpy as np
 from scipy.spatial import KDTree
 import pandas as pd
+import logging
+
 
 def remove_duplicates(points):
     """
-    去除点云数据中的重复点。
+    去除点云数据中的重复点，仅考虑坐标部分。
 
     参数:
-    points (numpy.ndarray): 点云数据，形状为 (N, D)。
+    points (numpy.ndarray): 点云数据，形状为 (N, 6)，前3列为坐标，后3列为色彩信息。
 
     返回:
     numpy.ndarray: 去除重复点后的点云数据。
     """
-    df = pd.DataFrame(points)
-    df = df.drop_duplicates()
-    return df.to_numpy()
+    # 提取坐标部分
+    coordinates = points[:, :3]
+
+    # 获取唯一坐标及其索引
+    unique_coords, indices = np.unique(coordinates, axis=0, return_index=True)
+
+    # 根据索引获取对应的色彩信息
+    unique_points = points[indices]
+
+    return unique_points
 
 def has_duplicates(points, tol=1e-9):
     """
@@ -54,6 +64,7 @@ def has_duplicates(points, tol=1e-9):
 
 def has_duplicates_output(points, tol=1e-9):
     """
+    debug用
     检查点云数据集中是否存在重复的点，并输出重复的坐标。
 
     参数:
@@ -107,7 +118,6 @@ def chunk_point_cloud_fixed_size(points, block_size=256, cube_size=1024, min_poi
 
                 block_coords = coords[mask]
                 block_colors = colors[mask]
-                print(f"阈值点数：{min_points_threshold} . block点数：{len(block_coords)}", )
                 if len(block_coords) >= min_points_threshold:
                     block_points = torch.cat((block_coords, block_colors), dim=1)
                     blocks.append((block_points.cpu().numpy(), (x.item(), y.item(), z.item())))
@@ -115,52 +125,91 @@ def chunk_point_cloud_fixed_size(points, block_size=256, cube_size=1024, min_poi
                 # 清理未使用的张量
                 del block_coords, block_colors
                 torch.cuda.empty_cache()
-
+    print(f"总切块数: {len(blocks)}")  # 添加打印信息
     return blocks
 
 
-def adjust_points(points, target_num_points, perturbation_scale=0.01):
+# def adjust_points(chunk_A, chunk_B, n_points):
+#     """
+#     调整chunk_A中的点以匹配chunk_B中的点，并确保没有重复点。
+#
+#     参数：
+#         chunk_A (np.ndarray): chunk A中的点数组 (N x 3或N x 6，具体取决于维度)。
+#         chunk_B (np.ndarray): chunk B中的点数组 (M x 3或M x 6)。
+#         n_points (int): 从chunk_A中选择的点数，以匹配chunk_B。
+#
+#     返回：
+#         np.ndarray: 调整后的chunk_A，包含与chunk_B最接近的n_points个唯一点。
+#     """
+#     if len(chunk_A) == 0:
+#         return np.empty((0, chunk_B.shape[1]))  # 返回空数组，保持维度一致
+#
+#     tree = KDTree(chunk_A)
+#     adjusted_indices = set()  # 用于跟踪在chunk_A中唯一索引的集合
+#
+#     # 遍历chunk_B中的点，寻找在chunk_A中最近的唯一点
+#     for point in chunk_B:
+#         distances, indices = tree.query(point, k=len(chunk_A))  # 获取chunk_A中所有点的排序距离
+#
+#         # 寻找最近的未使用点
+#         for index in indices:
+#             if index not in adjusted_indices:
+#                 adjusted_indices.add(index)
+#                 break
+#
+#         # 如果已选择足够的点，则停止
+#         if len(adjusted_indices) >= n_points:
+#             break
+#
+#     # 将索引转换为列表并选择相应的点
+#     adjusted_chunk_A = chunk_A[list(adjusted_indices)]
+#
+#     # 确保结果恰好有n_points个点（如有必要进行填充）
+#     if len(adjusted_chunk_A) < n_points:
+#         remaining_indices = list(set(range(len(chunk_A))) - adjusted_indices)
+#         if remaining_indices:  # 检查是否还有剩余的索引可用
+#             additional_indices = np.random.choice(
+#                 remaining_indices,
+#                 n_points - len(adjusted_chunk_A),
+#                 replace=False
+#             )
+#             adjusted_chunk_A = np.vstack([adjusted_chunk_A, chunk_A[additional_indices]])
+#
+#     return adjusted_chunk_A
+
+
+def adjust_points(chunk_A, chunk_B):
     """
-    调整点的数量到目标数量。如果点的数量少于目标数量，则通过复制并扰动原始点来补齐。
-    如果点的数量多于目标数量，则随机采样点。
+    优化精简版
+    调整chunk_A中的点以匹配chunk_B中的点，并确保没有重复点。
 
-    参数:
-    points (numpy.ndarray): 原始点云数据，形状为 (N, D)。
-    target_num_points (int): 目标点的数量。
-    perturbation_scale (float): 扰动的尺度，默认为 0.01。
+    参数：
+        chunk_A (np.ndarray): chunk A中的点数组 (N x 3或N x 6，具体取决于维度)。
+        chunk_B (np.ndarray): chunk B中的点数组 (M x 3或M x 6)。
 
-    返回:
-    numpy.ndarray: 调整后的点云数据，形状为 (target_num_points, D)。
+    返回：
+        np.ndarray: 调整后的chunk_A，包含与chunk_B最接近的点，数量与chunk_B相同。
     """
-    current_num_points = len(points)
-    if current_num_points == target_num_points:
-        return points
-    elif current_num_points < target_num_points:
-        num_missing_points = target_num_points - current_num_points
-        existing_coords = set(map(tuple, points))
+    if len(chunk_A) == 0 or len(chunk_B) == 0:
+        return np.empty((0, chunk_B.shape[1]))  # 返回空数组，保持维度一致
 
-        new_points = []
-        while len(new_points) < num_missing_points:
-            indices = np.random.choice(current_num_points, num_missing_points, replace=True)
-            missing_points = points[indices]
+    n_points = len(chunk_B)  # 设置n_points为chunk_B的长度
+    tree = KDTree(chunk_A)
+    adjusted_indices = set()  # 用于跟踪在chunk_A中唯一索引的集合
+    adjusted_chunk_A = np.empty((n_points, chunk_A.shape[1]))  # 初始化调整后的chunk_A
 
-            # 对选中的点进行微小的扰动
-            perturbations = np.random.normal(scale=perturbation_scale, size=missing_points.shape)
-            perturbed_points = missing_points + perturbations
+    # 遍历chunk_B中的点，寻找在chunk_A中最近的唯一点
+    for i, point in enumerate(chunk_B):
+        distances, indices = tree.query(point, k=len(chunk_A))  # 获取chunk_A中所有点的排序距离
 
-            # 检查是否有重复的坐标
-            for point in perturbed_points:
-                point_tuple = tuple(point)
-                if point_tuple not in existing_coords:
-                    existing_coords.add(point_tuple)
-                    new_points.append(point)
-                    if len(new_points) >= num_missing_points:
-                        break
+        # 寻找最近的未使用点
+        for index in indices:
+            if index not in adjusted_indices:
+                adjusted_indices.add(index)
+                adjusted_chunk_A[i] = chunk_A[index]
+                break
 
-        return np.vstack((points, np.array(new_points)))
-    else:
-        indices = np.random.choice(current_num_points, target_num_points, replace=False)
-        return points[indices]
+    return adjusted_chunk_A
 
 class PointCloudDataset(Dataset):
     def __init__(self, folder_A, folder_B, block_size=256, cube_size=1024,min_points_ratio=0.1):
@@ -218,6 +267,7 @@ class PointCloudDataset(Dataset):
         file_A, file_B = self.files_A[idx]
         points_A = self.load_ply(file_A)
         points_B = self.load_ply(file_B)
+        # 压缩后的ply有坐标重复
         check_compress = has_duplicates(points_B)
         if check_compress:
             points_B = remove_duplicates(points_B)
@@ -226,16 +276,32 @@ class PointCloudDataset(Dataset):
             # print(duplicates)
         chunks_A = chunk_point_cloud_fixed_size(points_A, self.block_size, self.cube_size, self.min_points_ratio)
         chunks_B = chunk_point_cloud_fixed_size(points_B, self.block_size, self.cube_size, self.min_points_ratio)
+        print(f"文件对 {idx}： A 切块数: {len(chunks_A)}，B 切块数: {len(chunks_B)}")  # 添加打印信息
         adjusted_chunks_A = []
         adjusted_chunks_B = []
 
-
         for (chunk_A, index_A), (chunk_B, index_B) in zip(chunks_A, chunks_B):
             if index_A == index_B:
-                print('未补齐之前，compress block是否有重复：',has_duplicates(chunk_B))
-                adjusted_chunk_B = adjust_points(chunk_B, len(chunk_A))
-                adjusted_chunks_A.append(chunk_A)
-                adjusted_chunks_B.append(adjusted_chunk_B)
+                print('未补齐之前chunk_B是否有重复：',has_duplicates(chunk_B))
+                # 根据chunk的大小调整A或B
+                if len(chunk_A) < len(chunk_B):
+                    # adjusted_chunk_B = adjust_points(chunk_B, chunk_A, n_points=len(chunk_A)) # 调整B以匹配A
+                    adjusted_chunk_B = adjust_points(chunk_B, chunk_A) # 调整B以匹配A
+                    print(
+                        f"调整前的 chunk_B 点数: {chunk_B.shape[0]}，调整后的点数: {adjusted_chunk_B.shape[0]}，chunk_A的点数: {chunk_A.shape[0]}")
+
+                    adjusted_chunks_B.append(adjusted_chunk_B)
+                    adjusted_chunks_A.append(chunk_A)
+                else:
+                    start_time = time.time()
+                    # adjusted_chunk_A = adjust_points(chunk_A, chunk_B, n_points=len(chunk_B))
+                    adjusted_chunk_A = adjust_points(chunk_A, chunk_B)
+                    end_time = time.time()
+                    elapsed_time = end_time - start_time
+                    print(f"KD-Tree耗时: {elapsed_time:.4f} 秒")
+                    print(f"调整前的 chunk_A 点数: {chunk_A.shape[0]}，调整后的点数: {adjusted_chunk_A.shape[0]}，chunk_B的点数: {chunk_B.shape[0]}")
+                    adjusted_chunks_A.append(adjusted_chunk_A)
+                    adjusted_chunks_B.append(chunk_B)
         if not adjusted_chunks_A or not adjusted_chunks_B:
             print(f"第 {idx} 对文件没有找到匹配的块，A: {len(adjusted_chunks_A)} 块, B: {len(adjusted_chunks_B)} 块.")
             return None
@@ -296,58 +362,12 @@ class MyTestNet(ME.MinkowskiNetwork):
         out = self.relu1(out)
         return out
 
-def pad_sparse_tensor(x, origin):
-    """
-    给稀疏张量 x 添加数据，使其形状与 origin 保持一致。
-
-    参数:
-    x (ME.SparseTensor): 需要填补的稀疏张量。
-    origin (ME.SparseTensor): 参考的稀疏张量，其形状为目标形状。
-
-    返回:
-    ME.SparseTensor: 填补后的稀疏张量 x。
-    """
-    # 获取需要填补的数量
-    num_to_add = origin.shape[0] - x.shape[0]
-
-    if num_to_add <= 0:
-        return x  # 如果 x 的形状已经大于或等于 origin，则不需要填补
-
-    # 获取 x 的设备
-    device = x.F.device
-
-    # 生成随机特征
-    random_feats = torch.randn(num_to_add, x.F.shape[1], device=device)
-
-    # 生成唯一的随机坐标
-    existing_coords = set(tuple(coord.tolist()) for coord in x.C)
-    random_coords = []
-    while len(random_coords) < num_to_add:
-        coord = torch.randint(0, 100, (x.C.shape[1],), device=device, dtype=torch.float32).tolist()
-        if tuple(coord) not in existing_coords:
-            random_coords.append(coord)
-            existing_coords.add(tuple(coord))
-
-    random_coords = torch.tensor(random_coords, device=device, dtype=torch.float32).int()
-
-    # 将原始数据和随机数据拼接
-    new_feats = torch.cat([x.F, random_feats], dim=0)
-    new_coords = torch.cat([x.C, random_coords], dim=0)
-
-    # 创建新的稀疏张量
-    new_x = ME.SparseTensor(features=new_feats, coordinates=new_coords, coordinate_manager=x.coordinate_manager)
-
-    # 调试信息
-    print(f'Original shape: {x.shape}')
-    print(f'Origin shape: {origin.shape}')
-    print(f'New shape: {new_x.shape}')
-    print(f'Number of features added: {num_to_add}')
-
-    return new_x
 
 if __name__ == '__main__':
     dataset = PointCloudDataset(folder_A='./data/original',
                                 folder_B='./data/compress',
+                                block_size = 128,
+                                cube_size = 1024,
                                 min_points_ratio=0.0001
                                 )
 
@@ -365,7 +385,12 @@ if __name__ == '__main__':
             return torch.nn.functional.mse_loss(pred, target)
 
 
-    def train_model(model, data_loader, optimizer, device='cuda', epochs=10, blocks_per_epoch=2):
+    def train_model(model, data_loader, optimizer, device='cuda', epochs=10, blocks_per_epoch=1):
+
+        log_file = 'training_log.log'
+        logging.basicConfig(filename=log_file, level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+        logger = logging.getLogger()
+
         model = model.to(device)
         model.train()
 
@@ -382,10 +407,11 @@ if __name__ == '__main__':
                     # 每N个块进行处理
                     for i in range(0, len(block_buffer_A), blocks_per_epoch):
                         if i + 1 >= len(block_buffer_A) or i + 1 >= len(block_buffer_B):
-                            print(f"Skipping block {i + 1} as it exceeds buffer length.")
+                            # print(f"Skipping block {i + 1} as it exceeds buffer length.")
                             break
 
-                        print(block_buffer_A[i].shape, block_buffer_B[i].shape)
+                        # print(block_buffer_A[i].shape, block_buffer_B[i].shape)
+                        logger.info(f"Processing block {i} and {i + 1}")
 
                         # 提取坐标和特征
                         coords_A1, feats_A1 = block_buffer_A[i][0, :, :3], block_buffer_A[i][0, :, 3:]
@@ -393,7 +419,7 @@ if __name__ == '__main__':
                         coords_B1, feats_B1 = block_buffer_B[i][0, :, :3], block_buffer_B[i][0, :, 3:]
                         coords_B2, feats_B2 = block_buffer_B[i + 1][0, :, :3], block_buffer_B[i + 1][0, :, 3:]
 
-                        print('coords_A1_shape:', coords_A1.shape, coords_A2.shape, coords_B1.shape, coords_B2.shape)
+                        # print('coords_A1_shape:', coords_A1.shape, coords_A2.shape, coords_B1.shape, coords_B2.shape)
 
                         # 合并坐标和特征
                         coords_A_tensor = ME_utils.batched_coordinates([coords_A1.view(-1, 3), coords_A2.view(-1, 3)],
@@ -404,8 +430,8 @@ if __name__ == '__main__':
                                                                        device=device)
                         feats_B_tensor = torch.cat([feats_B1, feats_B2]).to(device).float()
 
-                        print('coords_AB_tensor_shape:', coords_A_tensor.shape, coords_B_tensor.shape)
-                        print('feats_AB_tensor_shape:', feats_A_tensor.shape, feats_B_tensor.shape)
+                        # print('coords_AB_tensor_shape:', coords_A_tensor.shape, coords_B_tensor.shape)
+                        # print('feats_AB_tensor_shape:', feats_A_tensor.shape, feats_B_tensor.shape)
 
                         # 确保行数一致
                         assert feats_B_tensor.shape[0] == coords_B_tensor.shape[
@@ -414,38 +440,38 @@ if __name__ == '__main__':
                             0], "Feature and coordinates row count must match!"
 
                         origin = ME.SparseTensor(features=feats_A_tensor, coordinates=coords_A_tensor)
-                        print('model_origin_shape:', origin.shape)
+                        # print('model_origin_shape:', origin.shape)
 
                         # 构造 SparseTensor
                         x = ME.SparseTensor(features=feats_B_tensor, coordinates=coords_B_tensor)
-                        print('model_input_x_shape:', x.shape, type(x))
-
-                        new_x = pad_sparse_tensor(x, origin)
-                        print('after pad model_input_x_shape:', new_x.shape, type(new_x))
+                        # print('model_input_x_shape:', x.shape, type(x))
 
                         # 确保 new_x 是 float32 类型
-                        new_x = ME.SparseTensor(
-                            features=new_x.F.float(),
-                            coordinates=new_x.C,
-                            coordinate_manager=new_x.coordinate_manager
+                        x = ME.SparseTensor(
+                            features=x.F.float(),
+                            coordinates=x.C,
+                            coordinate_manager=x.coordinate_manager
                         )
 
                         optimizer.zero_grad()
-                        output = model(new_x)
+                        output = model(x)
 
-                        # 计算残差并合并输出
-                        residual = output.F.float() - feats_B_tensor.float()
-                        combined_output = output.F + residual
+                        # # 计算残差并合并输出
+                        # residual = output.F.float() - feats_B_tensor.float()
+                        # combined_output = output.F + residual
 
-                        # 计算损失
-                        loss = position_loss(combined_output.float(), origin.F.float())
+                        # 计算损失 模型output与origin进行计算
+                        loss = position_loss(output.F.float(), origin.F.float())
                         total_loss += loss.item()
 
                         loss.backward()
                         optimizer.step()
+                        batch_loss_log = f"Epoch {epoch + 1}/{epochs}, Batch {num_batches + 1}, Loss: {loss.item():.4f}"
+                        logger.info(batch_loss_log)
 
                     avg_loss = total_loss / (blocks_per_epoch // 2)
-                    print(f"Epoch {epoch + 1}/{epochs}, Batch {num_batches + 1}, Average Loss: {avg_loss:.4f}")
+                    avg_loss_log = f"Epoch {epoch + 1}/{epochs}, Batch {num_batches + 1}, Average Loss: {avg_loss:.4f}"
+                    logger.info(avg_loss_log)
 
                     # 清空缓冲区
                     block_buffer_A.clear()
@@ -456,6 +482,8 @@ if __name__ == '__main__':
             save_path = str(epoch) + '_model.pth'
             torch.save(model.state_dict(), save_path)
             print(f"Model saved at epoch {epoch + 1} to {save_path}")
+            model_save_log = f"Model saved at epoch {epoch + 1} to {save_path}"
+            logger.info(model_save_log)
 
     # model = MyNet()
 
@@ -464,4 +492,4 @@ if __name__ == '__main__':
     optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
 
     # 训练模型
-    train_model(model, data_loader, optimizer)
+    train_model(model, data_loader, optimizer,epochs=1,blocks_per_epoch=8)
