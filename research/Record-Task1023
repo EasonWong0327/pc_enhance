@@ -4,6 +4,8 @@ TASK2: 跑成功，预测结果
 1.新增kd-tree，用compress在origin里面寻找最佳的点，compress_point=origin_point
   很耗时
 2.训练集2张图片，train代码跑通，predict代码跑通。
+  predict生成的block与origin的block进行PSNR计算。
+
   正式如下：
             数据集：
               训练集soldier 298对（origin-compress）
