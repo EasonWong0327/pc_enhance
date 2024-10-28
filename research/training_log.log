@@ -1,0 +1,807 @@
+2024-10-27 13:12:52,998 - INFO - Processing block 0 and 1
+2024-10-27 13:12:53,014 - INFO - Epoch 1/10, Batch 1, Loss: 0.4117
+2024-10-27 13:12:53,014 - INFO - Processing block 8 and 9
+2024-10-27 13:12:53,020 - INFO - Epoch 1/10, Batch 1, Loss: 0.3721
+2024-10-27 13:12:53,020 - INFO - Processing block 16 and 17
+2024-10-27 13:12:53,087 - INFO - Epoch 1/10, Batch 1, Loss: 0.3587
+2024-10-27 13:12:53,087 - INFO - Processing block 24 and 25
+2024-10-27 13:12:53,151 - INFO - Epoch 1/10, Batch 1, Loss: 0.3440
+2024-10-27 13:12:53,151 - INFO - Processing block 32 and 33
+2024-10-27 13:12:53,218 - INFO - Epoch 1/10, Batch 1, Loss: 0.3671
+2024-10-27 13:12:53,218 - INFO - Processing block 40 and 41
+2024-10-27 13:12:53,263 - INFO - Epoch 1/10, Batch 1, Loss: 0.3307
+2024-10-27 13:12:53,263 - INFO - Processing block 48 and 49
+2024-10-27 13:12:53,325 - INFO - Epoch 1/10, Batch 1, Loss: 0.3428
+2024-10-27 13:12:53,325 - INFO - Epoch 1/10, Batch 1, Average Loss: 0.6318
+2024-10-27 13:57:21,874 - INFO - Processing block 0 and 1
+2024-10-27 13:57:21,880 - INFO - Epoch 1/10, Batch 2, Loss: 0.3501
+2024-10-27 13:57:21,880 - INFO - Processing block 8 and 9
+2024-10-27 13:57:21,925 - INFO - Epoch 1/10, Batch 2, Loss: 0.3305
+2024-10-27 13:57:21,925 - INFO - Processing block 16 and 17
+2024-10-27 13:57:21,964 - INFO - Epoch 1/10, Batch 2, Loss: 0.3209
+2024-10-27 13:57:21,964 - INFO - Processing block 24 and 25
+2024-10-27 13:57:22,003 - INFO - Epoch 1/10, Batch 2, Loss: 0.3171
+2024-10-27 13:57:22,003 - INFO - Processing block 32 and 33
+2024-10-27 13:57:22,062 - INFO - Epoch 1/10, Batch 2, Loss: 0.3192
+2024-10-27 13:57:22,062 - INFO - Processing block 40 and 41
+2024-10-27 13:57:22,124 - INFO - Epoch 1/10, Batch 2, Loss: 0.3237
+2024-10-27 13:57:22,124 - INFO - Processing block 48 and 49
+2024-10-27 13:57:22,201 - INFO - Epoch 1/10, Batch 2, Loss: 0.3005
+2024-10-27 13:57:22,202 - INFO - Processing block 56 and 57
+2024-10-27 13:57:22,206 - INFO - Epoch 1/10, Batch 2, Loss: 0.3156
+2024-10-27 13:57:22,206 - INFO - Epoch 1/10, Batch 2, Average Loss: 0.6444
+2024-10-27 14:42:38,788 - INFO - Processing block 0 and 1
+2024-10-27 14:42:38,795 - INFO - Epoch 1/10, Batch 3, Loss: 0.3003
+2024-10-27 14:42:38,795 - INFO - Processing block 8 and 9
+2024-10-27 14:42:38,838 - INFO - Epoch 1/10, Batch 3, Loss: 0.2814
+2024-10-27 14:42:38,838 - INFO - Processing block 16 and 17
+2024-10-27 14:42:38,869 - INFO - Epoch 1/10, Batch 3, Loss: 0.2716
+2024-10-27 14:42:38,869 - INFO - Processing block 24 and 25
+2024-10-27 14:42:38,934 - INFO - Epoch 1/10, Batch 3, Loss: 0.2635
+2024-10-27 14:42:38,934 - INFO - Processing block 32 and 33
+2024-10-27 14:42:38,998 - INFO - Epoch 1/10, Batch 3, Loss: 0.2857
+2024-10-27 14:42:38,998 - INFO - Processing block 40 and 41
+2024-10-27 14:42:39,058 - INFO - Epoch 1/10, Batch 3, Loss: 0.2726
+2024-10-27 14:42:39,058 - INFO - Processing block 48 and 49
+2024-10-27 14:42:39,089 - INFO - Epoch 1/10, Batch 3, Loss: 0.2619
+2024-10-27 14:42:39,089 - INFO - Processing block 56 and 57
+2024-10-27 14:42:39,097 - INFO - Epoch 1/10, Batch 3, Loss: 0.2913
+2024-10-27 14:42:39,097 - INFO - Epoch 1/10, Batch 3, Average Loss: 0.5570
+2024-10-27 15:23:27,086 - INFO - Processing block 0 and 1
+2024-10-27 15:23:27,093 - INFO - Epoch 1/10, Batch 4, Loss: 0.2441
+2024-10-27 15:23:27,093 - INFO - Processing block 8 and 9
+2024-10-27 15:23:27,160 - INFO - Epoch 1/10, Batch 4, Loss: 0.2394
+2024-10-27 15:23:27,160 - INFO - Processing block 16 and 17
+2024-10-27 15:23:27,193 - INFO - Epoch 1/10, Batch 4, Loss: 0.2652
+2024-10-27 15:23:27,193 - INFO - Processing block 24 and 25
+2024-10-27 15:23:27,250 - INFO - Epoch 1/10, Batch 4, Loss: 0.2467
+2024-10-27 15:23:27,250 - INFO - Processing block 32 and 33
+2024-10-27 15:23:27,289 - INFO - Epoch 1/10, Batch 4, Loss: 0.2409
+2024-10-27 15:23:27,289 - INFO - Processing block 40 and 41
+2024-10-27 15:23:27,325 - INFO - Epoch 1/10, Batch 4, Loss: 0.2191
+2024-10-27 15:23:27,325 - INFO - Processing block 48 and 49
+2024-10-27 15:23:27,389 - INFO - Epoch 1/10, Batch 4, Loss: 0.2330
+2024-10-27 15:23:27,389 - INFO - Processing block 56 and 57
+2024-10-27 15:23:27,416 - INFO - Epoch 1/10, Batch 4, Loss: 0.3048
+2024-10-27 15:23:27,416 - INFO - Processing block 64 and 65
+2024-10-27 15:23:27,450 - INFO - Epoch 1/10, Batch 4, Loss: 0.2476
+2024-10-27 15:23:27,450 - INFO - Epoch 1/10, Batch 4, Average Loss: 0.5602
+2024-10-27 16:01:42,390 - INFO - Processing block 0 and 1
+2024-10-27 16:01:42,397 - INFO - Epoch 1/10, Batch 5, Loss: 0.1911
+2024-10-27 16:01:42,397 - INFO - Processing block 8 and 9
+2024-10-27 16:01:42,403 - INFO - Epoch 1/10, Batch 5, Loss: 0.2678
+2024-10-27 16:01:42,403 - INFO - Processing block 16 and 17
+2024-10-27 16:01:42,464 - INFO - Epoch 1/10, Batch 5, Loss: 0.2083
+2024-10-27 16:01:42,464 - INFO - Processing block 24 and 25
+2024-10-27 16:01:42,529 - INFO - Epoch 1/10, Batch 5, Loss: 0.2091
+2024-10-27 16:01:42,529 - INFO - Processing block 32 and 33
+2024-10-27 16:01:42,588 - INFO - Epoch 1/10, Batch 5, Loss: 0.2304
+2024-10-27 16:01:42,588 - INFO - Processing block 40 and 41
+2024-10-27 16:01:42,629 - INFO - Epoch 1/10, Batch 5, Loss: 0.2102
+2024-10-27 16:01:42,629 - INFO - Processing block 48 and 49
+2024-10-27 16:01:42,698 - INFO - Epoch 1/10, Batch 5, Loss: 0.1941
+2024-10-27 16:01:42,698 - INFO - Epoch 1/10, Batch 5, Average Loss: 0.3778
+2024-10-27 16:42:18,532 - INFO - Processing block 0 and 1
+2024-10-27 16:42:18,538 - INFO - Epoch 1/10, Batch 6, Loss: 0.1725
+2024-10-27 16:42:18,538 - INFO - Processing block 8 and 9
+2024-10-27 16:42:18,593 - INFO - Epoch 1/10, Batch 6, Loss: 0.1881
+2024-10-27 16:42:18,593 - INFO - Processing block 16 and 17
+2024-10-27 16:42:18,629 - INFO - Epoch 1/10, Batch 6, Loss: 0.1899
+2024-10-27 16:42:18,630 - INFO - Processing block 24 and 25
+2024-10-27 16:42:18,669 - INFO - Epoch 1/10, Batch 6, Loss: 0.2003
+2024-10-27 16:42:18,669 - INFO - Processing block 32 and 33
+2024-10-27 16:42:18,730 - INFO - Epoch 1/10, Batch 6, Loss: 0.1995
+2024-10-27 16:42:18,730 - INFO - Processing block 40 and 41
+2024-10-27 16:42:18,789 - INFO - Epoch 1/10, Batch 6, Loss: 0.2066
+2024-10-27 16:42:18,789 - INFO - Processing block 48 and 49
+2024-10-27 16:42:18,818 - INFO - Epoch 1/10, Batch 6, Loss: 0.1973
+2024-10-27 16:42:18,819 - INFO - Processing block 56 and 57
+2024-10-27 16:42:18,822 - INFO - Epoch 1/10, Batch 6, Loss: 0.1893
+2024-10-27 16:42:18,822 - INFO - Epoch 1/10, Batch 6, Average Loss: 0.3859
+2024-10-27 17:26:10,992 - INFO - Processing block 0 and 1
+2024-10-27 17:26:11,003 - INFO - Epoch 1/10, Batch 7, Loss: 0.1688
+2024-10-27 17:26:11,003 - INFO - Processing block 8 and 9
+2024-10-27 17:26:11,073 - INFO - Epoch 1/10, Batch 7, Loss: 0.2205
+2024-10-27 17:26:11,073 - INFO - Processing block 16 and 17
+2024-10-27 17:26:11,105 - INFO - Epoch 1/10, Batch 7, Loss: 0.1941
+2024-10-27 17:26:11,105 - INFO - Processing block 24 and 25
+2024-10-27 17:26:11,135 - INFO - Epoch 1/10, Batch 7, Loss: 0.1904
+2024-10-27 17:26:11,135 - INFO - Processing block 32 and 33
+2024-10-27 17:26:11,160 - INFO - Epoch 1/10, Batch 7, Loss: 0.2158
+2024-10-27 17:26:11,160 - INFO - Processing block 40 and 41
+2024-10-27 17:26:11,223 - INFO - Epoch 1/10, Batch 7, Loss: 0.1962
+2024-10-27 17:26:11,223 - INFO - Processing block 48 and 49
+2024-10-27 17:26:11,293 - INFO - Epoch 1/10, Batch 7, Loss: 0.2088
+2024-10-27 17:26:11,293 - INFO - Processing block 56 and 57
+2024-10-27 17:26:11,299 - INFO - Epoch 1/10, Batch 7, Loss: 0.1936
+2024-10-27 17:26:11,299 - INFO - Epoch 1/10, Batch 7, Average Loss: 0.3971
+2024-10-27 18:09:17,308 - INFO - Processing block 0 and 1
+2024-10-27 18:09:17,315 - INFO - Epoch 1/10, Batch 8, Loss: 0.1535
+2024-10-27 18:09:17,315 - INFO - Processing block 8 and 9
+2024-10-27 18:09:17,370 - INFO - Epoch 1/10, Batch 8, Loss: 0.1919
+2024-10-27 18:09:17,370 - INFO - Processing block 16 and 17
+2024-10-27 18:09:17,405 - INFO - Epoch 1/10, Batch 8, Loss: 0.1982
+2024-10-27 18:09:17,405 - INFO - Processing block 24 and 25
+2024-10-27 18:09:17,445 - INFO - Epoch 1/10, Batch 8, Loss: 0.2086
+2024-10-27 18:09:17,446 - INFO - Processing block 32 and 33
+2024-10-27 18:09:17,477 - INFO - Epoch 1/10, Batch 8, Loss: 0.1738
+2024-10-27 18:09:17,477 - INFO - Processing block 40 and 41
+2024-10-27 18:09:17,538 - INFO - Epoch 1/10, Batch 8, Loss: 0.1867
+2024-10-27 18:09:17,538 - INFO - Processing block 48 and 49
+2024-10-27 18:09:17,610 - INFO - Epoch 1/10, Batch 8, Loss: 0.1918
+2024-10-27 18:09:17,611 - INFO - Epoch 1/10, Batch 8, Average Loss: 0.3261
+2024-10-27 18:16:04,852 - INFO - Processing block 0 and 1
+2024-10-27 18:16:04,862 - INFO - Epoch 1/10, Batch 9, Loss: 0.1296
+2024-10-27 18:16:04,862 - INFO - Processing block 8 and 9
+2024-10-27 18:16:04,865 - INFO - Epoch 1/10, Batch 9, Loss: 0.2369
+2024-10-27 18:16:04,865 - INFO - Epoch 1/10, Batch 9, Average Loss: 0.0916
+2024-10-27 18:56:34,566 - INFO - Processing block 0 and 1
+2024-10-27 18:56:34,574 - INFO - Epoch 1/10, Batch 10, Loss: 0.1368
+2024-10-27 18:56:34,574 - INFO - Processing block 8 and 9
+2024-10-27 18:56:34,607 - INFO - Epoch 1/10, Batch 10, Loss: 0.1778
+2024-10-27 18:56:34,607 - INFO - Processing block 16 and 17
+2024-10-27 18:56:34,673 - INFO - Epoch 1/10, Batch 10, Loss: 0.1581
+2024-10-27 18:56:34,673 - INFO - Processing block 24 and 25
+2024-10-27 18:56:34,704 - INFO - Epoch 1/10, Batch 10, Loss: 0.1499
+2024-10-27 18:56:34,704 - INFO - Processing block 32 and 33
+2024-10-27 18:56:34,769 - INFO - Epoch 1/10, Batch 10, Loss: 0.2170
+2024-10-27 18:56:34,769 - INFO - Processing block 40 and 41
+2024-10-27 18:56:34,798 - INFO - Epoch 1/10, Batch 10, Loss: 0.1336
+2024-10-27 18:56:34,798 - INFO - Processing block 48 and 49
+2024-10-27 18:56:34,843 - INFO - Epoch 1/10, Batch 10, Loss: 0.1273
+2024-10-27 18:56:34,843 - INFO - Processing block 56 and 57
+2024-10-27 18:56:34,845 - INFO - Epoch 1/10, Batch 10, Loss: 0.1161
+2024-10-27 18:56:34,845 - INFO - Epoch 1/10, Batch 10, Average Loss: 0.3042
+2024-10-27 19:40:55,707 - INFO - Processing block 0 and 1
+2024-10-27 19:40:55,717 - INFO - Epoch 1/10, Batch 11, Loss: 0.1124
+2024-10-27 19:40:55,717 - INFO - Processing block 8 and 9
+2024-10-27 19:40:55,734 - INFO - Epoch 1/10, Batch 11, Loss: 0.1835
+2024-10-27 19:40:55,734 - INFO - Processing block 16 and 17
+2024-10-27 19:40:55,749 - INFO - Epoch 1/10, Batch 11, Loss: 0.1820
+2024-10-27 19:40:55,749 - INFO - Processing block 24 and 25
+2024-10-27 19:40:55,767 - INFO - Epoch 1/10, Batch 11, Loss: 0.1908
+2024-10-27 19:40:55,767 - INFO - Processing block 32 and 33
+2024-10-27 19:40:55,781 - INFO - Epoch 1/10, Batch 11, Loss: 0.1637
+2024-10-27 19:40:55,781 - INFO - Processing block 40 and 41
+2024-10-27 19:40:55,801 - INFO - Epoch 1/10, Batch 11, Loss: 0.1834
+2024-10-27 19:40:55,801 - INFO - Processing block 48 and 49
+2024-10-27 19:40:55,825 - INFO - Epoch 1/10, Batch 11, Loss: 0.1814
+2024-10-27 19:40:55,825 - INFO - Processing block 56 and 57
+2024-10-27 19:40:55,830 - INFO - Epoch 1/10, Batch 11, Loss: 0.1750
+2024-10-27 19:40:55,830 - INFO - Epoch 1/10, Batch 11, Average Loss: 0.3430
+2024-10-27 20:22:15,253 - INFO - Processing block 0 and 1
+2024-10-27 20:22:15,263 - INFO - Epoch 1/10, Batch 12, Loss: 0.0987
+2024-10-27 20:22:15,263 - INFO - Processing block 8 and 9
+2024-10-27 20:22:15,269 - INFO - Epoch 1/10, Batch 12, Loss: 0.2119
+2024-10-27 20:22:15,269 - INFO - Processing block 16 and 17
+2024-10-27 20:22:15,289 - INFO - Epoch 1/10, Batch 12, Loss: 0.1320
+2024-10-27 20:22:15,289 - INFO - Processing block 24 and 25
+2024-10-27 20:22:15,310 - INFO - Epoch 1/10, Batch 12, Loss: 0.1260
+2024-10-27 20:22:15,310 - INFO - Processing block 32 and 33
+2024-10-27 20:22:15,329 - INFO - Epoch 1/10, Batch 12, Loss: 0.1840
+2024-10-27 20:22:15,329 - INFO - Processing block 40 and 41
+2024-10-27 20:22:15,339 - INFO - Epoch 1/10, Batch 12, Loss: 0.1483
+2024-10-27 20:22:15,339 - INFO - Processing block 48 and 49
+2024-10-27 20:22:15,364 - INFO - Epoch 1/10, Batch 12, Loss: 0.1309
+2024-10-27 20:22:15,364 - INFO - Epoch 1/10, Batch 12, Average Loss: 0.2580
+2024-10-27 21:04:28,010 - INFO - Processing block 0 and 1
+2024-10-27 21:04:28,018 - INFO - Epoch 1/10, Batch 13, Loss: 0.1126
+2024-10-27 21:04:28,018 - INFO - Processing block 8 and 9
+2024-10-27 21:04:28,052 - INFO - Epoch 1/10, Batch 13, Loss: 0.1176
+2024-10-27 21:04:28,052 - INFO - Processing block 16 and 17
+2024-10-27 21:04:28,085 - INFO - Epoch 1/10, Batch 13, Loss: 0.1460
+2024-10-27 21:04:28,085 - INFO - Processing block 24 and 25
+2024-10-27 21:04:28,121 - INFO - Epoch 1/10, Batch 13, Loss: 0.1367
+2024-10-27 21:04:28,121 - INFO - Processing block 32 and 33
+2024-10-27 21:04:28,157 - INFO - Epoch 1/10, Batch 13, Loss: 0.1518
+2024-10-27 21:04:28,157 - INFO - Processing block 40 and 41
+2024-10-27 21:04:28,226 - INFO - Epoch 1/10, Batch 13, Loss: 0.1369
+2024-10-27 21:04:28,226 - INFO - Processing block 48 and 49
+2024-10-27 21:04:28,289 - INFO - Epoch 1/10, Batch 13, Loss: 0.1360
+2024-10-27 21:04:28,289 - INFO - Processing block 56 and 57
+2024-10-27 21:04:28,325 - INFO - Epoch 1/10, Batch 13, Loss: 0.1559
+2024-10-27 21:04:28,325 - INFO - Epoch 1/10, Batch 13, Average Loss: 0.2734
+2024-10-27 21:45:42,829 - INFO - Processing block 0 and 1
+2024-10-27 21:45:42,836 - INFO - Epoch 1/10, Batch 14, Loss: 0.0867
+2024-10-27 21:45:42,836 - INFO - Processing block 8 and 9
+2024-10-27 21:45:42,841 - INFO - Epoch 1/10, Batch 14, Loss: 0.1964
+2024-10-27 21:45:42,841 - INFO - Processing block 16 and 17
+2024-10-27 21:45:42,905 - INFO - Epoch 1/10, Batch 14, Loss: 0.1251
+2024-10-27 21:45:42,905 - INFO - Processing block 24 and 25
+2024-10-27 21:45:42,970 - INFO - Epoch 1/10, Batch 14, Loss: 0.1226
+2024-10-27 21:45:42,970 - INFO - Processing block 32 and 33
+2024-10-27 21:45:43,028 - INFO - Epoch 1/10, Batch 14, Loss: 0.1643
+2024-10-27 21:45:43,028 - INFO - Processing block 40 and 41
+2024-10-27 21:45:43,062 - INFO - Epoch 1/10, Batch 14, Loss: 0.1330
+2024-10-27 21:45:43,062 - INFO - Processing block 48 and 49
+2024-10-27 21:45:43,129 - INFO - Epoch 1/10, Batch 14, Loss: 0.1270
+2024-10-27 21:45:43,129 - INFO - Epoch 1/10, Batch 14, Average Loss: 0.2388
+2024-10-27 22:25:32,290 - INFO - Processing block 0 and 1
+2024-10-27 22:25:32,298 - INFO - Epoch 1/10, Batch 15, Loss: 0.1155
+2024-10-27 22:25:32,298 - INFO - Processing block 8 and 9
+2024-10-27 22:25:32,304 - INFO - Epoch 1/10, Batch 15, Loss: 0.1641
+2024-10-27 22:25:32,304 - INFO - Processing block 16 and 17
+2024-10-27 22:25:32,345 - INFO - Epoch 1/10, Batch 15, Loss: 0.1165
+2024-10-27 22:25:32,345 - INFO - Processing block 24 and 25
+2024-10-27 22:25:32,385 - INFO - Epoch 1/10, Batch 15, Loss: 0.1304
+2024-10-27 22:25:32,385 - INFO - Processing block 32 and 33
+2024-10-27 22:25:32,450 - INFO - Epoch 1/10, Batch 15, Loss: 0.1111
+2024-10-27 22:25:32,450 - INFO - Processing block 40 and 41
+2024-10-27 22:25:32,476 - INFO - Epoch 1/10, Batch 15, Loss: 0.2035
+2024-10-27 22:25:32,476 - INFO - Processing block 48 and 49
+2024-10-27 22:25:32,514 - INFO - Epoch 1/10, Batch 15, Loss: 0.1246
+2024-10-27 22:25:32,514 - INFO - Processing block 56 and 57
+2024-10-27 22:25:32,518 - INFO - Epoch 1/10, Batch 15, Loss: 0.0997
+2024-10-27 22:25:32,518 - INFO - Epoch 1/10, Batch 15, Average Loss: 0.2663
+2024-10-27 23:06:50,817 - INFO - Processing block 0 and 1
+2024-10-27 23:06:50,823 - INFO - Epoch 1/10, Batch 16, Loss: 0.0977
+2024-10-27 23:06:50,823 - INFO - Processing block 8 and 9
+2024-10-27 23:06:50,829 - INFO - Epoch 1/10, Batch 16, Loss: 0.1840
+2024-10-27 23:06:50,829 - INFO - Processing block 16 and 17
+2024-10-27 23:06:50,890 - INFO - Epoch 1/10, Batch 16, Loss: 0.1104
+2024-10-27 23:06:50,890 - INFO - Processing block 24 and 25
+2024-10-27 23:06:50,962 - INFO - Epoch 1/10, Batch 16, Loss: 0.1053
+2024-10-27 23:06:50,962 - INFO - Processing block 32 and 33
+2024-10-27 23:06:51,029 - INFO - Epoch 1/10, Batch 16, Loss: 0.1603
+2024-10-27 23:06:51,029 - INFO - Processing block 40 and 41
+2024-10-27 23:06:51,065 - INFO - Epoch 1/10, Batch 16, Loss: 0.1129
+2024-10-27 23:06:51,065 - INFO - Processing block 48 and 49
+2024-10-27 23:06:51,125 - INFO - Epoch 1/10, Batch 16, Loss: 0.1139
+2024-10-27 23:06:51,125 - INFO - Epoch 1/10, Batch 16, Average Loss: 0.2212
+2024-10-27 23:50:57,595 - INFO - Processing block 0 and 1
+2024-10-27 23:50:57,602 - INFO - Epoch 1/10, Batch 17, Loss: 0.1046
+2024-10-27 23:50:57,603 - INFO - Processing block 8 and 9
+2024-10-27 23:50:57,667 - INFO - Epoch 1/10, Batch 17, Loss: 0.1362
+2024-10-27 23:50:57,667 - INFO - Processing block 16 and 17
+2024-10-27 23:50:57,705 - INFO - Epoch 1/10, Batch 17, Loss: 0.1589
+2024-10-27 23:50:57,705 - INFO - Processing block 24 and 25
+2024-10-27 23:50:57,740 - INFO - Epoch 1/10, Batch 17, Loss: 0.1549
+2024-10-27 23:50:57,740 - INFO - Processing block 32 and 33
+2024-10-27 23:50:57,809 - INFO - Epoch 1/10, Batch 17, Loss: 0.1269
+2024-10-27 23:50:57,809 - INFO - Processing block 40 and 41
+2024-10-27 23:50:57,872 - INFO - Epoch 1/10, Batch 17, Loss: 0.1576
+2024-10-27 23:50:57,872 - INFO - Processing block 48 and 49
+2024-10-27 23:50:57,937 - INFO - Epoch 1/10, Batch 17, Loss: 0.1541
+2024-10-27 23:50:57,937 - INFO - Processing block 56 and 57
+2024-10-27 23:50:57,943 - INFO - Epoch 1/10, Batch 17, Loss: 0.1262
+2024-10-27 23:50:57,943 - INFO - Epoch 1/10, Batch 17, Average Loss: 0.2799
+2024-10-28 00:33:36,096 - INFO - Processing block 0 and 1
+2024-10-28 00:33:36,103 - INFO - Epoch 1/10, Batch 18, Loss: 0.0877
+2024-10-28 00:33:36,103 - INFO - Processing block 8 and 9
+2024-10-28 00:33:36,146 - INFO - Epoch 1/10, Batch 18, Loss: 0.1160
+2024-10-28 00:33:36,146 - INFO - Processing block 16 and 17
+2024-10-28 00:33:36,180 - INFO - Epoch 1/10, Batch 18, Loss: 0.1120
+2024-10-28 00:33:36,180 - INFO - Processing block 24 and 25
+2024-10-28 00:33:36,250 - INFO - Epoch 1/10, Batch 18, Loss: 0.1011
+2024-10-28 00:33:36,250 - INFO - Processing block 32 and 33
+2024-10-28 00:33:36,285 - INFO - Epoch 1/10, Batch 18, Loss: 0.1321
+2024-10-28 00:33:36,285 - INFO - Processing block 40 and 41
+2024-10-28 00:33:36,336 - INFO - Epoch 1/10, Batch 18, Loss: 0.1063
+2024-10-28 00:33:36,336 - INFO - Processing block 48 and 49
+2024-10-28 00:33:36,365 - INFO - Epoch 1/10, Batch 18, Loss: 0.1584
+2024-10-28 00:33:36,365 - INFO - Processing block 56 and 57
+2024-10-28 00:33:36,371 - INFO - Epoch 1/10, Batch 18, Loss: 0.1332
+2024-10-28 00:33:36,371 - INFO - Epoch 1/10, Batch 18, Average Loss: 0.2367
+2024-10-28 01:18:57,144 - INFO - Processing block 0 and 1
+2024-10-28 01:18:57,151 - INFO - Epoch 1/10, Batch 19, Loss: 0.0847
+2024-10-28 01:18:57,151 - INFO - Processing block 8 and 9
+2024-10-28 01:18:57,214 - INFO - Epoch 1/10, Batch 19, Loss: 0.1368
+2024-10-28 01:18:57,214 - INFO - Processing block 16 and 17
+2024-10-28 01:18:57,245 - INFO - Epoch 1/10, Batch 19, Loss: 0.1353
+2024-10-28 01:18:57,245 - INFO - Processing block 24 and 25
+2024-10-28 01:18:57,275 - INFO - Epoch 1/10, Batch 19, Loss: 0.1160
+2024-10-28 01:18:57,275 - INFO - Processing block 32 and 33
+2024-10-28 01:18:57,304 - INFO - Epoch 1/10, Batch 19, Loss: 0.1131
+2024-10-28 01:18:57,304 - INFO - Processing block 40 and 41
+2024-10-28 01:18:57,365 - INFO - Epoch 1/10, Batch 19, Loss: 0.1414
+2024-10-28 01:18:57,365 - INFO - Processing block 48 and 49
+2024-10-28 01:18:57,438 - INFO - Epoch 1/10, Batch 19, Loss: 0.1479
+2024-10-28 01:18:57,438 - INFO - Processing block 56 and 57
+2024-10-28 01:18:57,443 - INFO - Epoch 1/10, Batch 19, Loss: 0.1099
+2024-10-28 01:18:57,443 - INFO - Epoch 1/10, Batch 19, Average Loss: 0.2463
+2024-10-28 02:03:25,846 - INFO - Processing block 0 and 1
+2024-10-28 02:03:25,865 - INFO - Epoch 1/10, Batch 20, Loss: 0.1021
+2024-10-28 02:03:25,865 - INFO - Processing block 8 and 9
+2024-10-28 02:03:25,938 - INFO - Epoch 1/10, Batch 20, Loss: 0.1268
+2024-10-28 02:03:25,938 - INFO - Processing block 16 and 17
+2024-10-28 02:03:25,973 - INFO - Epoch 1/10, Batch 20, Loss: 0.1270
+2024-10-28 02:03:25,973 - INFO - Processing block 24 and 25
+2024-10-28 02:03:26,014 - INFO - Epoch 1/10, Batch 20, Loss: 0.1298
+2024-10-28 02:03:26,014 - INFO - Processing block 32 and 33
+2024-10-28 02:03:26,074 - INFO - Epoch 1/10, Batch 20, Loss: 0.0942
+2024-10-28 02:03:26,074 - INFO - Processing block 40 and 41
+2024-10-28 02:03:26,149 - INFO - Epoch 1/10, Batch 20, Loss: 0.1513
+2024-10-28 02:03:26,150 - INFO - Processing block 48 and 49
+2024-10-28 02:03:26,214 - INFO - Epoch 1/10, Batch 20, Loss: 0.1387
+2024-10-28 02:03:26,214 - INFO - Processing block 56 and 57
+2024-10-28 02:03:26,220 - INFO - Epoch 1/10, Batch 20, Loss: 0.1100
+2024-10-28 02:03:26,220 - INFO - Epoch 1/10, Batch 20, Average Loss: 0.2450
+2024-10-28 02:44:41,390 - INFO - Processing block 0 and 1
+2024-10-28 02:44:41,399 - INFO - Epoch 1/10, Batch 21, Loss: 0.0983
+2024-10-28 02:44:41,399 - INFO - Processing block 8 and 9
+2024-10-28 02:44:41,407 - INFO - Epoch 1/10, Batch 21, Loss: 0.1494
+2024-10-28 02:44:41,407 - INFO - Processing block 16 and 17
+2024-10-28 02:44:41,475 - INFO - Epoch 1/10, Batch 21, Loss: 0.1054
+2024-10-28 02:44:41,475 - INFO - Processing block 24 and 25
+2024-10-28 02:44:41,533 - INFO - Epoch 1/10, Batch 21, Loss: 0.0948
+2024-10-28 02:44:41,533 - INFO - Processing block 32 and 33
+2024-10-28 02:44:41,573 - INFO - Epoch 1/10, Batch 21, Loss: 0.1262
+2024-10-28 02:44:41,573 - INFO - Processing block 40 and 41
+2024-10-28 02:44:41,609 - INFO - Epoch 1/10, Batch 21, Loss: 0.1059
+2024-10-28 02:44:41,609 - INFO - Processing block 48 and 49
+2024-10-28 02:44:41,678 - INFO - Epoch 1/10, Batch 21, Loss: 0.1000
+2024-10-28 02:44:41,679 - INFO - Epoch 1/10, Batch 21, Average Loss: 0.1950
+2024-10-28 02:49:13,559 - INFO - Processing block 0 and 1
+2024-10-28 02:49:13,566 - INFO - Epoch 1/10, Batch 22, Loss: 0.0914
+2024-10-28 02:49:13,567 - INFO - Epoch 1/10, Batch 22, Average Loss: 0.0229
+2024-10-28 03:31:25,545 - INFO - Processing block 0 and 1
+2024-10-28 03:31:25,555 - INFO - Epoch 1/10, Batch 23, Loss: 0.0943
+2024-10-28 03:31:25,555 - INFO - Processing block 8 and 9
+2024-10-28 03:31:25,560 - INFO - Epoch 1/10, Batch 23, Loss: 0.1511
+2024-10-28 03:31:25,560 - INFO - Processing block 16 and 17
+2024-10-28 03:31:25,625 - INFO - Epoch 1/10, Batch 23, Loss: 0.0995
+2024-10-28 03:31:25,625 - INFO - Processing block 24 and 25
+2024-10-28 03:31:25,685 - INFO - Epoch 1/10, Batch 23, Loss: 0.0898
+2024-10-28 03:31:25,685 - INFO - Processing block 32 and 33
+2024-10-28 03:31:25,736 - INFO - Epoch 1/10, Batch 23, Loss: 0.1340
+2024-10-28 03:31:25,736 - INFO - Processing block 40 and 41
+2024-10-28 03:31:25,772 - INFO - Epoch 1/10, Batch 23, Loss: 0.1088
+2024-10-28 03:31:25,772 - INFO - Processing block 48 and 49
+2024-10-28 03:31:25,831 - INFO - Epoch 1/10, Batch 23, Loss: 0.0953
+2024-10-28 03:31:25,831 - INFO - Epoch 1/10, Batch 23, Average Loss: 0.1932
+2024-10-28 04:15:47,542 - INFO - Processing block 0 and 1
+2024-10-28 04:15:47,549 - INFO - Epoch 1/10, Batch 24, Loss: 0.0834
+2024-10-28 04:15:47,549 - INFO - Processing block 8 and 9
+2024-10-28 04:15:47,607 - INFO - Epoch 1/10, Batch 24, Loss: 0.0978
+2024-10-28 04:15:47,607 - INFO - Processing block 16 and 17
+2024-10-28 04:15:47,638 - INFO - Epoch 1/10, Batch 24, Loss: 0.1164
+2024-10-28 04:15:47,638 - INFO - Processing block 24 and 25
+2024-10-28 04:15:47,677 - INFO - Epoch 1/10, Batch 24, Loss: 0.1282
+2024-10-28 04:15:47,677 - INFO - Processing block 32 and 33
+2024-10-28 04:15:47,713 - INFO - Epoch 1/10, Batch 24, Loss: 0.0816
+2024-10-28 04:15:47,713 - INFO - Processing block 40 and 41
+2024-10-28 04:15:47,779 - INFO - Epoch 1/10, Batch 24, Loss: 0.1408
+2024-10-28 04:15:47,779 - INFO - Processing block 48 and 49
+2024-10-28 04:15:47,841 - INFO - Epoch 1/10, Batch 24, Loss: 0.1145
+2024-10-28 04:15:47,841 - INFO - Epoch 1/10, Batch 24, Average Loss: 0.1907
+2024-10-28 04:57:33,234 - INFO - Processing block 0 and 1
+2024-10-28 04:57:33,242 - INFO - Epoch 1/10, Batch 25, Loss: 0.0792
+2024-10-28 04:57:33,242 - INFO - Processing block 8 and 9
+2024-10-28 04:57:33,249 - INFO - Epoch 1/10, Batch 25, Loss: 0.1335
+2024-10-28 04:57:33,249 - INFO - Processing block 16 and 17
+2024-10-28 04:57:33,319 - INFO - Epoch 1/10, Batch 25, Loss: 0.0948
+2024-10-28 04:57:33,319 - INFO - Processing block 24 and 25
+2024-10-28 04:57:33,384 - INFO - Epoch 1/10, Batch 25, Loss: 0.0817
+2024-10-28 04:57:33,384 - INFO - Processing block 32 and 33
+2024-10-28 04:57:33,452 - INFO - Epoch 1/10, Batch 25, Loss: 0.1139
+2024-10-28 04:57:33,452 - INFO - Processing block 40 and 41
+2024-10-28 04:57:33,482 - INFO - Epoch 1/10, Batch 25, Loss: 0.1068
+2024-10-28 04:57:33,482 - INFO - Processing block 48 and 49
+2024-10-28 04:57:33,540 - INFO - Epoch 1/10, Batch 25, Loss: 0.0711
+2024-10-28 04:57:33,540 - INFO - Processing block 56 and 57
+2024-10-28 04:57:33,542 - INFO - Epoch 1/10, Batch 25, Loss: 0.0858
+2024-10-28 04:57:33,543 - INFO - Epoch 1/10, Batch 25, Average Loss: 0.1917
+2024-10-28 05:43:40,755 - INFO - Processing block 0 and 1
+2024-10-28 05:43:40,761 - INFO - Epoch 1/10, Batch 26, Loss: 0.0752
+2024-10-28 05:43:40,762 - INFO - Processing block 8 and 9
+2024-10-28 05:43:40,811 - INFO - Epoch 1/10, Batch 26, Loss: 0.0978
+2024-10-28 05:43:40,811 - INFO - Processing block 16 and 17
+2024-10-28 05:43:40,876 - INFO - Epoch 1/10, Batch 26, Loss: 0.1006
+2024-10-28 05:43:40,876 - INFO - Processing block 24 and 25
+2024-10-28 05:43:40,945 - INFO - Epoch 1/10, Batch 26, Loss: 0.0845
+2024-10-28 05:43:40,945 - INFO - Processing block 32 and 33
+2024-10-28 05:43:41,013 - INFO - Epoch 1/10, Batch 26, Loss: 0.1033
+2024-10-28 05:43:41,013 - INFO - Processing block 40 and 41
+2024-10-28 05:43:41,068 - INFO - Epoch 1/10, Batch 26, Loss: 0.1028
+2024-10-28 05:43:41,068 - INFO - Processing block 48 and 49
+2024-10-28 05:43:41,113 - INFO - Epoch 1/10, Batch 26, Loss: 0.0948
+2024-10-28 05:43:41,113 - INFO - Processing block 56 and 57
+2024-10-28 05:43:41,121 - INFO - Epoch 1/10, Batch 26, Loss: 0.1570
+2024-10-28 05:43:41,121 - INFO - Epoch 1/10, Batch 26, Average Loss: 0.2040
+2024-10-28 05:51:06,337 - INFO - Processing block 0 and 1
+2024-10-28 05:51:06,344 - INFO - Epoch 1/10, Batch 27, Loss: 0.0835
+2024-10-28 05:51:06,344 - INFO - Processing block 8 and 9
+2024-10-28 05:51:06,349 - INFO - Epoch 1/10, Batch 27, Loss: 0.1193
+2024-10-28 05:51:06,349 - INFO - Epoch 1/10, Batch 27, Average Loss: 0.0507
+2024-10-28 06:33:26,134 - INFO - Processing block 0 and 1
+2024-10-28 06:33:26,141 - INFO - Epoch 1/10, Batch 28, Loss: 0.0803
+2024-10-28 06:33:26,141 - INFO - Processing block 8 and 9
+2024-10-28 06:33:26,146 - INFO - Epoch 1/10, Batch 28, Loss: 0.0986
+2024-10-28 06:33:26,146 - INFO - Processing block 16 and 17
+2024-10-28 06:33:26,210 - INFO - Epoch 1/10, Batch 28, Loss: 0.0876
+2024-10-28 06:33:26,210 - INFO - Processing block 24 and 25
+2024-10-28 06:33:26,273 - INFO - Epoch 1/10, Batch 28, Loss: 0.0753
+2024-10-28 06:33:26,273 - INFO - Processing block 32 and 33
+2024-10-28 06:33:26,313 - INFO - Epoch 1/10, Batch 28, Loss: 0.1052
+2024-10-28 06:33:26,313 - INFO - Processing block 40 and 41
+2024-10-28 06:33:26,346 - INFO - Epoch 1/10, Batch 28, Loss: 0.1026
+2024-10-28 06:33:26,347 - INFO - Processing block 48 and 49
+2024-10-28 06:33:26,372 - INFO - Epoch 1/10, Batch 28, Loss: 0.0839
+2024-10-28 06:33:26,372 - INFO - Processing block 56 and 57
+2024-10-28 06:33:26,375 - INFO - Epoch 1/10, Batch 28, Loss: 0.1155
+2024-10-28 06:33:26,375 - INFO - Epoch 1/10, Batch 28, Average Loss: 0.1872
+2024-10-28 07:19:21,619 - INFO - Processing block 0 and 1
+2024-10-28 07:19:21,626 - INFO - Epoch 1/10, Batch 29, Loss: 0.0641
+2024-10-28 07:19:21,626 - INFO - Processing block 8 and 9
+2024-10-28 07:19:21,673 - INFO - Epoch 1/10, Batch 29, Loss: 0.0956
+2024-10-28 07:19:21,673 - INFO - Processing block 16 and 17
+2024-10-28 07:19:21,709 - INFO - Epoch 1/10, Batch 29, Loss: 0.0898
+2024-10-28 07:19:21,709 - INFO - Processing block 24 and 25
+2024-10-28 07:19:21,777 - INFO - Epoch 1/10, Batch 29, Loss: 0.0762
+2024-10-28 07:19:21,778 - INFO - Processing block 32 and 33
+2024-10-28 07:19:21,837 - INFO - Epoch 1/10, Batch 29, Loss: 0.1010
+2024-10-28 07:19:21,837 - INFO - Processing block 40 and 41
+2024-10-28 07:19:21,919 - INFO - Epoch 1/10, Batch 29, Loss: 0.1018
+2024-10-28 07:19:21,919 - INFO - Processing block 48 and 49
+2024-10-28 07:19:21,960 - INFO - Epoch 1/10, Batch 29, Loss: 0.0983
+2024-10-28 07:19:21,960 - INFO - Processing block 56 and 57
+2024-10-28 07:19:21,968 - INFO - Epoch 1/10, Batch 29, Loss: 0.1459
+2024-10-28 07:19:21,968 - INFO - Epoch 1/10, Batch 29, Average Loss: 0.1932
+2024-10-28 08:01:18,905 - INFO - Processing block 0 and 1
+2024-10-28 08:01:18,912 - INFO - Epoch 1/10, Batch 30, Loss: 0.0833
+2024-10-28 08:01:18,912 - INFO - Processing block 8 and 9
+2024-10-28 08:01:18,917 - INFO - Epoch 1/10, Batch 30, Loss: 0.1109
+2024-10-28 08:01:18,917 - INFO - Processing block 16 and 17
+2024-10-28 08:01:18,973 - INFO - Epoch 1/10, Batch 30, Loss: 0.0855
+2024-10-28 08:01:18,973 - INFO - Processing block 24 and 25
+2024-10-28 08:01:19,038 - INFO - Epoch 1/10, Batch 30, Loss: 0.0778
+2024-10-28 08:01:19,038 - INFO - Processing block 32 and 33
+2024-10-28 08:01:19,099 - INFO - Epoch 1/10, Batch 30, Loss: 0.1021
+2024-10-28 08:01:19,099 - INFO - Processing block 40 and 41
+2024-10-28 08:01:19,136 - INFO - Epoch 1/10, Batch 30, Loss: 0.0994
+2024-10-28 08:01:19,136 - INFO - Processing block 48 and 49
+2024-10-28 08:01:19,206 - INFO - Epoch 1/10, Batch 30, Loss: 0.0908
+2024-10-28 08:01:19,206 - INFO - Epoch 1/10, Batch 30, Average Loss: 0.1625
+2024-10-28 08:43:31,003 - INFO - Processing block 0 and 1
+2024-10-28 08:43:31,015 - INFO - Epoch 1/10, Batch 31, Loss: 0.0775
+2024-10-28 08:43:31,015 - INFO - Processing block 8 and 9
+2024-10-28 08:43:31,053 - INFO - Epoch 1/10, Batch 31, Loss: 0.0873
+2024-10-28 08:43:31,053 - INFO - Processing block 16 and 17
+2024-10-28 08:43:31,112 - INFO - Epoch 1/10, Batch 31, Loss: 0.0774
+2024-10-28 08:43:31,112 - INFO - Processing block 24 and 25
+2024-10-28 08:43:31,143 - INFO - Epoch 1/10, Batch 31, Loss: 0.0730
+2024-10-28 08:43:31,143 - INFO - Processing block 32 and 33
+2024-10-28 08:43:31,211 - INFO - Epoch 1/10, Batch 31, Loss: 0.1210
+2024-10-28 08:43:31,211 - INFO - Processing block 40 and 41
+2024-10-28 08:43:31,244 - INFO - Epoch 1/10, Batch 31, Loss: 0.0976
+2024-10-28 08:43:31,244 - INFO - Processing block 48 and 49
+2024-10-28 08:43:31,322 - INFO - Epoch 1/10, Batch 31, Loss: 0.0720
+2024-10-28 08:43:31,322 - INFO - Processing block 56 and 57
+2024-10-28 08:43:31,325 - INFO - Epoch 1/10, Batch 31, Loss: 0.0855
+2024-10-28 08:43:31,325 - INFO - Epoch 1/10, Batch 31, Average Loss: 0.1728
+2024-10-28 09:28:02,035 - INFO - Processing block 0 and 1
+2024-10-28 09:28:02,042 - INFO - Epoch 1/10, Batch 32, Loss: 0.0672
+2024-10-28 09:28:02,042 - INFO - Processing block 8 and 9
+2024-10-28 09:28:02,105 - INFO - Epoch 1/10, Batch 32, Loss: 0.0896
+2024-10-28 09:28:02,105 - INFO - Processing block 16 and 17
+2024-10-28 09:28:02,137 - INFO - Epoch 1/10, Batch 32, Loss: 0.1295
+2024-10-28 09:28:02,137 - INFO - Processing block 24 and 25
+2024-10-28 09:28:02,166 - INFO - Epoch 1/10, Batch 32, Loss: 0.0873
+2024-10-28 09:28:02,166 - INFO - Processing block 32 and 33
+2024-10-28 09:28:02,198 - INFO - Epoch 1/10, Batch 32, Loss: 0.0846
+2024-10-28 09:28:02,198 - INFO - Processing block 40 and 41
+2024-10-28 09:28:02,269 - INFO - Epoch 1/10, Batch 32, Loss: 0.1389
+2024-10-28 09:28:02,269 - INFO - Processing block 48 and 49
+2024-10-28 09:28:02,348 - INFO - Epoch 1/10, Batch 32, Loss: 0.1197
+2024-10-28 09:28:02,348 - INFO - Processing block 56 and 57
+2024-10-28 09:28:02,352 - INFO - Epoch 1/10, Batch 32, Loss: 0.0872
+2024-10-28 09:28:02,352 - INFO - Epoch 1/10, Batch 32, Average Loss: 0.2010
+2024-10-28 10:09:40,457 - INFO - Processing block 0 and 1
+2024-10-28 10:09:40,463 - INFO - Epoch 1/10, Batch 33, Loss: 0.0701
+2024-10-28 10:09:40,463 - INFO - Processing block 8 and 9
+2024-10-28 10:09:40,469 - INFO - Epoch 1/10, Batch 33, Loss: 0.1363
+2024-10-28 10:09:40,469 - INFO - Processing block 16 and 17
+2024-10-28 10:09:40,537 - INFO - Epoch 1/10, Batch 33, Loss: 0.0821
+2024-10-28 10:09:40,538 - INFO - Processing block 24 and 25
+2024-10-28 10:09:40,599 - INFO - Epoch 1/10, Batch 33, Loss: 0.0743
+2024-10-28 10:09:40,599 - INFO - Processing block 32 and 33
+2024-10-28 10:09:40,657 - INFO - Epoch 1/10, Batch 33, Loss: 0.1031
+2024-10-28 10:09:40,658 - INFO - Processing block 40 and 41
+2024-10-28 10:09:40,690 - INFO - Epoch 1/10, Batch 33, Loss: 0.0966
+2024-10-28 10:09:40,690 - INFO - Processing block 48 and 49
+2024-10-28 10:09:40,753 - INFO - Epoch 1/10, Batch 33, Loss: 0.0807
+2024-10-28 10:09:40,753 - INFO - Epoch 1/10, Batch 33, Average Loss: 0.1608
+2024-10-28 10:49:51,707 - INFO - Processing block 0 and 1
+2024-10-28 10:49:51,715 - INFO - Epoch 1/10, Batch 34, Loss: 0.0583
+2024-10-28 10:49:51,715 - INFO - Processing block 8 and 9
+2024-10-28 10:49:51,768 - INFO - Epoch 1/10, Batch 34, Loss: 0.0736
+2024-10-28 10:49:51,768 - INFO - Processing block 16 and 17
+2024-10-28 10:49:51,773 - INFO - Epoch 1/10, Batch 34, Loss: 0.1530
+2024-10-28 10:49:51,773 - INFO - Processing block 24 and 25
+2024-10-28 10:49:51,801 - INFO - Epoch 1/10, Batch 34, Loss: 0.0968
+2024-10-28 10:49:51,801 - INFO - Processing block 32 and 33
+2024-10-28 10:49:51,843 - INFO - Epoch 1/10, Batch 34, Loss: 0.0979
+2024-10-28 10:49:51,843 - INFO - Processing block 40 and 41
+2024-10-28 10:49:51,908 - INFO - Epoch 1/10, Batch 34, Loss: 0.0712
+2024-10-28 10:49:51,908 - INFO - Processing block 48 and 49
+2024-10-28 10:49:51,974 - INFO - Epoch 1/10, Batch 34, Loss: 0.0687
+2024-10-28 10:49:51,974 - INFO - Processing block 56 and 57
+2024-10-28 10:49:52,033 - INFO - Epoch 1/10, Batch 34, Loss: 0.0973
+2024-10-28 10:49:52,033 - INFO - Epoch 1/10, Batch 34, Average Loss: 0.1792
+2024-10-28 11:35:57,930 - INFO - Processing block 0 and 1
+2024-10-28 11:35:57,936 - INFO - Epoch 1/10, Batch 35, Loss: 0.0863
+2024-10-28 11:35:57,936 - INFO - Processing block 8 and 9
+2024-10-28 11:35:57,981 - INFO - Epoch 1/10, Batch 35, Loss: 0.0845
+2024-10-28 11:35:57,982 - INFO - Processing block 16 and 17
+2024-10-28 11:35:58,037 - INFO - Epoch 1/10, Batch 35, Loss: 0.0890
+2024-10-28 11:35:58,037 - INFO - Processing block 24 and 25
+2024-10-28 11:35:58,102 - INFO - Epoch 1/10, Batch 35, Loss: 0.0665
+2024-10-28 11:35:58,102 - INFO - Processing block 32 and 33
+2024-10-28 11:35:58,161 - INFO - Epoch 1/10, Batch 35, Loss: 0.0911
+2024-10-28 11:35:58,161 - INFO - Processing block 40 and 41
+2024-10-28 11:35:58,213 - INFO - Epoch 1/10, Batch 35, Loss: 0.0851
+2024-10-28 11:35:58,213 - INFO - Processing block 48 and 49
+2024-10-28 11:35:58,246 - INFO - Epoch 1/10, Batch 35, Loss: 0.0879
+2024-10-28 11:35:58,246 - INFO - Processing block 56 and 57
+2024-10-28 11:35:58,255 - INFO - Epoch 1/10, Batch 35, Loss: 0.1396
+2024-10-28 11:35:58,255 - INFO - Epoch 1/10, Batch 35, Average Loss: 0.1825
+2024-10-28 12:18:14,241 - INFO - Processing block 0 and 1
+2024-10-28 12:18:14,254 - INFO - Epoch 1/10, Batch 36, Loss: 0.0714
+2024-10-28 12:18:14,254 - INFO - Processing block 8 and 9
+2024-10-28 12:18:14,264 - INFO - Epoch 1/10, Batch 36, Loss: 0.1238
+2024-10-28 12:18:14,264 - INFO - Processing block 16 and 17
+2024-10-28 12:18:14,329 - INFO - Epoch 1/10, Batch 36, Loss: 0.0725
+2024-10-28 12:18:14,329 - INFO - Processing block 24 and 25
+2024-10-28 12:18:14,399 - INFO - Epoch 1/10, Batch 36, Loss: 0.0732
+2024-10-28 12:18:14,399 - INFO - Processing block 32 and 33
+2024-10-28 12:18:14,457 - INFO - Epoch 1/10, Batch 36, Loss: 0.1110
+2024-10-28 12:18:14,457 - INFO - Processing block 40 and 41
+2024-10-28 12:18:14,498 - INFO - Epoch 1/10, Batch 36, Loss: 0.1001
+2024-10-28 12:18:14,498 - INFO - Processing block 48 and 49
+2024-10-28 12:18:14,577 - INFO - Epoch 1/10, Batch 36, Loss: 0.0612
+2024-10-28 12:18:14,577 - INFO - Epoch 1/10, Batch 36, Average Loss: 0.1533
+2024-10-28 12:58:27,723 - INFO - Processing block 0 and 1
+2024-10-28 12:58:27,730 - INFO - Epoch 1/10, Batch 37, Loss: 0.0688
+2024-10-28 12:58:27,730 - INFO - Processing block 8 and 9
+2024-10-28 12:58:27,736 - INFO - Epoch 1/10, Batch 37, Loss: 0.1256
+2024-10-28 12:58:27,736 - INFO - Processing block 16 and 17
+2024-10-28 12:58:27,801 - INFO - Epoch 1/10, Batch 37, Loss: 0.0684
+2024-10-28 12:58:27,801 - INFO - Processing block 24 and 25
+2024-10-28 12:58:27,857 - INFO - Epoch 1/10, Batch 37, Loss: 0.0659
+2024-10-28 12:58:27,857 - INFO - Processing block 32 and 33
+2024-10-28 12:58:27,920 - INFO - Epoch 1/10, Batch 37, Loss: 0.0919
+2024-10-28 12:58:27,920 - INFO - Processing block 40 and 41
+2024-10-28 12:58:27,952 - INFO - Epoch 1/10, Batch 37, Loss: 0.1005
+2024-10-28 12:58:27,952 - INFO - Processing block 48 and 49
+2024-10-28 12:58:28,019 - INFO - Epoch 1/10, Batch 37, Loss: 0.0780
+2024-10-28 12:58:28,019 - INFO - Epoch 1/10, Batch 37, Average Loss: 0.1498
+2024-10-28 13:38:04,747 - INFO - Processing block 0 and 1
+2024-10-28 13:38:04,755 - INFO - Epoch 1/10, Batch 38, Loss: 0.0596
+2024-10-28 13:38:04,755 - INFO - Processing block 8 and 9
+2024-10-28 13:38:04,800 - INFO - Epoch 1/10, Batch 38, Loss: 0.0798
+2024-10-28 13:38:04,800 - INFO - Processing block 16 and 17
+2024-10-28 13:38:04,830 - INFO - Epoch 1/10, Batch 38, Loss: 0.0649
+2024-10-28 13:38:04,830 - INFO - Processing block 24 and 25
+2024-10-28 13:38:04,861 - INFO - Epoch 1/10, Batch 38, Loss: 0.0579
+2024-10-28 13:38:04,861 - INFO - Processing block 32 and 33
+2024-10-28 13:38:04,916 - INFO - Epoch 1/10, Batch 38, Loss: 0.1249
+2024-10-28 13:38:04,917 - INFO - Processing block 40 and 41
+2024-10-28 13:38:04,952 - INFO - Epoch 1/10, Batch 38, Loss: 0.1123
+2024-10-28 13:38:04,952 - INFO - Processing block 48 and 49
+2024-10-28 13:38:05,018 - INFO - Epoch 1/10, Batch 38, Loss: 0.0704
+2024-10-28 13:38:05,018 - INFO - Processing block 56 and 57
+2024-10-28 13:38:05,021 - INFO - Epoch 1/10, Batch 38, Loss: 0.0804
+2024-10-28 13:38:05,021 - INFO - Epoch 1/10, Batch 38, Average Loss: 0.1625
+2024-10-28 14:23:02,087 - INFO - Processing block 0 and 1
+2024-10-28 14:23:02,093 - INFO - Epoch 1/10, Batch 39, Loss: 0.0579
+2024-10-28 14:23:02,093 - INFO - Processing block 8 and 9
+2024-10-28 14:23:02,169 - INFO - Epoch 1/10, Batch 39, Loss: 0.0751
+2024-10-28 14:23:02,169 - INFO - Processing block 16 and 17
+2024-10-28 14:23:02,205 - INFO - Epoch 1/10, Batch 39, Loss: 0.0748
+2024-10-28 14:23:02,205 - INFO - Processing block 24 and 25
+2024-10-28 14:23:02,241 - INFO - Epoch 1/10, Batch 39, Loss: 0.0856
+2024-10-28 14:23:02,241 - INFO - Processing block 32 and 33
+2024-10-28 14:23:02,273 - INFO - Epoch 1/10, Batch 39, Loss: 0.0615
+2024-10-28 14:23:02,273 - INFO - Processing block 40 and 41
+2024-10-28 14:23:02,342 - INFO - Epoch 1/10, Batch 39, Loss: 0.1207
+2024-10-28 14:23:02,342 - INFO - Processing block 48 and 49
+2024-10-28 14:23:02,412 - INFO - Epoch 1/10, Batch 39, Loss: 0.1028
+2024-10-28 14:23:02,412 - INFO - Processing block 56 and 57
+2024-10-28 14:23:02,417 - INFO - Epoch 1/10, Batch 39, Loss: 0.0849
+2024-10-28 14:23:02,417 - INFO - Epoch 1/10, Batch 39, Average Loss: 0.1658
+2024-10-28 15:07:00,730 - INFO - Processing block 0 and 1
+2024-10-28 15:07:00,736 - INFO - Epoch 1/10, Batch 40, Loss: 0.0570
+2024-10-28 15:07:00,736 - INFO - Processing block 8 and 9
+2024-10-28 15:07:00,817 - INFO - Epoch 1/10, Batch 40, Loss: 0.0777
+2024-10-28 15:07:00,817 - INFO - Processing block 16 and 17
+2024-10-28 15:07:00,857 - INFO - Epoch 1/10, Batch 40, Loss: 0.0861
+2024-10-28 15:07:00,857 - INFO - Processing block 24 and 25
+2024-10-28 15:07:00,891 - INFO - Epoch 1/10, Batch 40, Loss: 0.0926
+2024-10-28 15:07:00,891 - INFO - Processing block 32 and 33
+2024-10-28 15:07:00,928 - INFO - Epoch 1/10, Batch 40, Loss: 0.0597
+2024-10-28 15:07:00,928 - INFO - Processing block 40 and 41
+2024-10-28 15:07:00,989 - INFO - Epoch 1/10, Batch 40, Loss: 0.1331
+2024-10-28 15:07:00,989 - INFO - Processing block 48 and 49
+2024-10-28 15:07:01,057 - INFO - Epoch 1/10, Batch 40, Loss: 0.0940
+2024-10-28 15:07:01,057 - INFO - Processing block 56 and 57
+2024-10-28 15:07:01,062 - INFO - Epoch 1/10, Batch 40, Loss: 0.0791
+2024-10-28 15:07:01,062 - INFO - Epoch 1/10, Batch 40, Average Loss: 0.1698
+2024-10-28 15:50:11,409 - INFO - Processing block 0 and 1
+2024-10-28 15:50:11,445 - INFO - Epoch 1/10, Batch 41, Loss: 0.0870
+2024-10-28 15:50:11,445 - INFO - Processing block 8 and 9
+2024-10-28 15:50:11,513 - INFO - Epoch 1/10, Batch 41, Loss: 0.1316
+2024-10-28 15:50:11,513 - INFO - Processing block 16 and 17
+2024-10-28 15:50:11,553 - INFO - Epoch 1/10, Batch 41, Loss: 0.0626
+2024-10-28 15:50:11,553 - INFO - Processing block 24 and 25
+2024-10-28 15:50:11,584 - INFO - Epoch 1/10, Batch 41, Loss: 0.0500
+2024-10-28 15:50:11,584 - INFO - Processing block 32 and 33
+2024-10-28 15:50:11,641 - INFO - Epoch 1/10, Batch 41, Loss: 0.0632
+2024-10-28 15:50:11,641 - INFO - Processing block 40 and 41
+2024-10-28 15:50:11,706 - INFO - Epoch 1/10, Batch 41, Loss: 0.1070
+2024-10-28 15:50:11,706 - INFO - Processing block 48 and 49
+2024-10-28 15:50:11,728 - INFO - Epoch 1/10, Batch 41, Loss: 0.0673
+2024-10-28 15:50:11,728 - INFO - Processing block 56 and 57
+2024-10-28 15:50:11,732 - INFO - Epoch 1/10, Batch 41, Loss: 0.0868
+2024-10-28 15:50:11,732 - INFO - Epoch 1/10, Batch 41, Average Loss: 0.1638
+2024-10-28 15:51:11,094 - INFO - Processing block 0 and 1
+2024-10-28 15:51:11,101 - INFO - Epoch 1/10, Batch 42, Loss: 0.0600
+2024-10-28 15:51:11,101 - INFO - Epoch 1/10, Batch 42, Average Loss: 0.0150
+2024-10-28 16:36:11,418 - INFO - Processing block 0 and 1
+2024-10-28 16:36:11,428 - INFO - Epoch 1/10, Batch 43, Loss: 0.0556
+2024-10-28 16:36:11,428 - INFO - Processing block 8 and 9
+2024-10-28 16:36:11,494 - INFO - Epoch 1/10, Batch 43, Loss: 0.0683
+2024-10-28 16:36:11,494 - INFO - Processing block 16 and 17
+2024-10-28 16:36:11,528 - INFO - Epoch 1/10, Batch 43, Loss: 0.0735
+2024-10-28 16:36:11,528 - INFO - Processing block 24 and 25
+2024-10-28 16:36:11,561 - INFO - Epoch 1/10, Batch 43, Loss: 0.0860
+2024-10-28 16:36:11,561 - INFO - Processing block 32 and 33
+2024-10-28 16:36:11,589 - INFO - Epoch 1/10, Batch 43, Loss: 0.0591
+2024-10-28 16:36:11,589 - INFO - Processing block 40 and 41
+2024-10-28 16:36:11,659 - INFO - Epoch 1/10, Batch 43, Loss: 0.1234
+2024-10-28 16:36:11,659 - INFO - Processing block 48 and 49
+2024-10-28 16:36:11,722 - INFO - Epoch 1/10, Batch 43, Loss: 0.0926
+2024-10-28 16:36:11,722 - INFO - Processing block 56 and 57
+2024-10-28 16:36:11,729 - INFO - Epoch 1/10, Batch 43, Loss: 0.0687
+2024-10-28 16:36:11,729 - INFO - Epoch 1/10, Batch 43, Average Loss: 0.1568
+2024-10-28 17:18:13,152 - INFO - Processing block 0 and 1
+2024-10-28 17:18:13,160 - INFO - Epoch 1/10, Batch 44, Loss: 0.0789
+2024-10-28 17:18:13,160 - INFO - Processing block 8 and 9
+2024-10-28 17:18:13,165 - INFO - Epoch 1/10, Batch 44, Loss: 0.1146
+2024-10-28 17:18:13,165 - INFO - Processing block 16 and 17
+2024-10-28 17:18:13,237 - INFO - Epoch 1/10, Batch 44, Loss: 0.0634
+2024-10-28 17:18:13,237 - INFO - Processing block 24 and 25
+2024-10-28 17:18:13,321 - INFO - Epoch 1/10, Batch 44, Loss: 0.0743
+2024-10-28 17:18:13,321 - INFO - Processing block 32 and 33
+2024-10-28 17:18:13,390 - INFO - Epoch 1/10, Batch 44, Loss: 0.1008
+2024-10-28 17:18:13,390 - INFO - Processing block 40 and 41
+2024-10-28 17:18:13,415 - INFO - Epoch 1/10, Batch 44, Loss: 0.0792
+2024-10-28 17:18:13,415 - INFO - Processing block 48 and 49
+2024-10-28 17:18:13,480 - INFO - Epoch 1/10, Batch 44, Loss: 0.0696
+2024-10-28 17:18:13,480 - INFO - Epoch 1/10, Batch 44, Average Loss: 0.1452
+2024-10-28 18:02:07,973 - INFO - Processing block 0 and 1
+2024-10-28 18:02:07,984 - INFO - Epoch 1/10, Batch 45, Loss: 0.0642
+2024-10-28 18:02:07,984 - INFO - Processing block 8 and 9
+2024-10-28 18:02:07,987 - INFO - Epoch 1/10, Batch 45, Loss: 0.0971
+2024-10-28 18:02:07,987 - INFO - Processing block 16 and 17
+2024-10-28 18:02:08,017 - INFO - Epoch 1/10, Batch 45, Loss: 0.0615
+2024-10-28 18:02:08,017 - INFO - Processing block 24 and 25
+2024-10-28 18:02:08,079 - INFO - Epoch 1/10, Batch 45, Loss: 0.0520
+2024-10-28 18:02:08,079 - INFO - Processing block 32 and 33
+2024-10-28 18:02:08,110 - INFO - Epoch 1/10, Batch 45, Loss: 0.0761
+2024-10-28 18:02:08,110 - INFO - Processing block 40 and 41
+2024-10-28 18:02:08,168 - INFO - Epoch 1/10, Batch 45, Loss: 0.0629
+2024-10-28 18:02:08,168 - INFO - Processing block 48 and 49
+2024-10-28 18:02:08,221 - INFO - Epoch 1/10, Batch 45, Loss: 0.0624
+2024-10-28 18:02:08,221 - INFO - Processing block 56 and 57
+2024-10-28 18:02:08,253 - INFO - Epoch 1/10, Batch 45, Loss: 0.0867
+2024-10-28 18:02:08,253 - INFO - Epoch 1/10, Batch 45, Average Loss: 0.1407
+2024-10-28 18:46:20,535 - INFO - Processing block 0 and 1
+2024-10-28 18:46:20,542 - INFO - Epoch 1/10, Batch 46, Loss: 0.0596
+2024-10-28 18:46:20,542 - INFO - Processing block 8 and 9
+2024-10-28 18:46:20,544 - INFO - Epoch 1/10, Batch 46, Loss: 0.0407
+2024-10-28 18:46:20,544 - INFO - Processing block 16 and 17
+2024-10-28 18:46:20,581 - INFO - Epoch 1/10, Batch 46, Loss: 0.0636
+2024-10-28 18:46:20,582 - INFO - Processing block 24 and 25
+2024-10-28 18:46:20,647 - INFO - Epoch 1/10, Batch 46, Loss: 0.0524
+2024-10-28 18:46:20,647 - INFO - Processing block 32 and 33
+2024-10-28 18:46:20,685 - INFO - Epoch 1/10, Batch 46, Loss: 0.0833
+2024-10-28 18:46:20,685 - INFO - Processing block 40 and 41
+2024-10-28 18:46:20,741 - INFO - Epoch 1/10, Batch 46, Loss: 0.0617
+2024-10-28 18:46:20,741 - INFO - Processing block 48 and 49
+2024-10-28 18:46:20,769 - INFO - Epoch 1/10, Batch 46, Loss: 0.0671
+2024-10-28 18:46:20,769 - INFO - Processing block 56 and 57
+2024-10-28 18:46:20,777 - INFO - Epoch 1/10, Batch 46, Loss: 0.1272
+2024-10-28 18:46:20,777 - INFO - Epoch 1/10, Batch 46, Average Loss: 0.1389
+2024-10-28 19:31:16,311 - INFO - Processing block 0 and 1
+2024-10-28 19:31:16,319 - INFO - Epoch 1/10, Batch 47, Loss: 0.0585
+2024-10-28 19:31:16,319 - INFO - Processing block 8 and 9
+2024-10-28 19:31:16,367 - INFO - Epoch 1/10, Batch 47, Loss: 0.0663
+2024-10-28 19:31:16,367 - INFO - Processing block 16 and 17
+2024-10-28 19:31:16,433 - INFO - Epoch 1/10, Batch 47, Loss: 0.0651
+2024-10-28 19:31:16,433 - INFO - Processing block 24 and 25
+2024-10-28 19:31:16,499 - INFO - Epoch 1/10, Batch 47, Loss: 0.0533
+2024-10-28 19:31:16,499 - INFO - Processing block 32 and 33
+2024-10-28 19:31:16,548 - INFO - Epoch 1/10, Batch 47, Loss: 0.0764
+2024-10-28 19:31:16,548 - INFO - Processing block 40 and 41
+2024-10-28 19:31:16,608 - INFO - Epoch 1/10, Batch 47, Loss: 0.0632
+2024-10-28 19:31:16,608 - INFO - Processing block 48 and 49
+2024-10-28 19:31:16,648 - INFO - Epoch 1/10, Batch 47, Loss: 0.0761
+2024-10-28 19:31:16,648 - INFO - Processing block 56 and 57
+2024-10-28 19:31:16,656 - INFO - Epoch 1/10, Batch 47, Loss: 0.1322
+2024-10-28 19:31:16,656 - INFO - Epoch 1/10, Batch 47, Average Loss: 0.1478
+2024-10-28 20:15:17,541 - INFO - Processing block 0 and 1
+2024-10-28 20:15:17,548 - INFO - Epoch 1/10, Batch 48, Loss: 0.0600
+2024-10-28 20:15:17,548 - INFO - Processing block 8 and 9
+2024-10-28 20:15:17,595 - INFO - Epoch 1/10, Batch 48, Loss: 0.0683
+2024-10-28 20:15:17,595 - INFO - Processing block 16 and 17
+2024-10-28 20:15:17,658 - INFO - Epoch 1/10, Batch 48, Loss: 0.0677
+2024-10-28 20:15:17,658 - INFO - Processing block 24 and 25
+2024-10-28 20:15:17,732 - INFO - Epoch 1/10, Batch 48, Loss: 0.0503
+2024-10-28 20:15:17,732 - INFO - Processing block 32 and 33
+2024-10-28 20:15:17,792 - INFO - Epoch 1/10, Batch 48, Loss: 0.0726
+2024-10-28 20:15:17,792 - INFO - Processing block 40 and 41
+2024-10-28 20:15:17,853 - INFO - Epoch 1/10, Batch 48, Loss: 0.0615
+2024-10-28 20:15:17,853 - INFO - Processing block 48 and 49
+2024-10-28 20:15:17,889 - INFO - Epoch 1/10, Batch 48, Loss: 0.0680
+2024-10-28 20:15:17,889 - INFO - Processing block 56 and 57
+2024-10-28 20:15:17,897 - INFO - Epoch 1/10, Batch 48, Loss: 0.1204
+2024-10-28 20:15:17,897 - INFO - Epoch 1/10, Batch 48, Average Loss: 0.1422
+2024-10-28 20:56:45,927 - INFO - Processing block 0 and 1
+2024-10-28 20:56:45,934 - INFO - Epoch 1/10, Batch 49, Loss: 0.0802
+2024-10-28 20:56:45,934 - INFO - Processing block 8 and 9
+2024-10-28 20:56:45,939 - INFO - Epoch 1/10, Batch 49, Loss: 0.1024
+2024-10-28 20:56:45,939 - INFO - Processing block 16 and 17
+2024-10-28 20:56:46,005 - INFO - Epoch 1/10, Batch 49, Loss: 0.0514
+2024-10-28 20:56:46,006 - INFO - Processing block 24 and 25
+2024-10-28 20:56:46,065 - INFO - Epoch 1/10, Batch 49, Loss: 0.0623
+2024-10-28 20:56:46,065 - INFO - Processing block 32 and 33
+2024-10-28 20:56:46,124 - INFO - Epoch 1/10, Batch 49, Loss: 0.0855
+2024-10-28 20:56:46,124 - INFO - Processing block 40 and 41
+2024-10-28 20:56:46,152 - INFO - Epoch 1/10, Batch 49, Loss: 0.0746
+2024-10-28 20:56:46,152 - INFO - Processing block 48 and 49
+2024-10-28 20:56:46,226 - INFO - Epoch 1/10, Batch 49, Loss: 0.0690
+2024-10-28 20:56:46,226 - INFO - Epoch 1/10, Batch 49, Average Loss: 0.1314
+2024-10-28 21:38:22,283 - INFO - Processing block 0 and 1
+2024-10-28 21:38:22,291 - INFO - Epoch 1/10, Batch 50, Loss: 0.0641
+2024-10-28 21:38:22,291 - INFO - Processing block 8 and 9
+2024-10-28 21:38:22,296 - INFO - Epoch 1/10, Batch 50, Loss: 0.0934
+2024-10-28 21:38:22,296 - INFO - Processing block 16 and 17
+2024-10-28 21:38:22,359 - INFO - Epoch 1/10, Batch 50, Loss: 0.0528
+2024-10-28 21:38:22,359 - INFO - Processing block 24 and 25
+2024-10-28 21:38:22,425 - INFO - Epoch 1/10, Batch 50, Loss: 0.0667
+2024-10-28 21:38:22,425 - INFO - Processing block 32 and 33
+2024-10-28 21:38:22,489 - INFO - Epoch 1/10, Batch 50, Loss: 0.0883
+2024-10-28 21:38:22,489 - INFO - Processing block 40 and 41
+2024-10-28 21:38:22,521 - INFO - Epoch 1/10, Batch 50, Loss: 0.0795
+2024-10-28 21:38:22,521 - INFO - Processing block 48 and 49
+2024-10-28 21:38:22,591 - INFO - Epoch 1/10, Batch 50, Loss: 0.0688
+2024-10-28 21:38:22,591 - INFO - Epoch 1/10, Batch 50, Average Loss: 0.1284
+2024-10-28 22:20:04,615 - INFO - Processing block 0 and 1
+2024-10-28 22:20:04,627 - INFO - Epoch 1/10, Batch 51, Loss: 0.0553
+2024-10-28 22:20:04,627 - INFO - Processing block 8 and 9
+2024-10-28 22:20:04,693 - INFO - Epoch 1/10, Batch 51, Loss: 0.0487
+2024-10-28 22:20:04,693 - INFO - Processing block 16 and 17
+2024-10-28 22:20:04,721 - INFO - Epoch 1/10, Batch 51, Loss: 0.0526
+2024-10-28 22:20:04,721 - INFO - Processing block 24 and 25
+2024-10-28 22:20:04,804 - INFO - Epoch 1/10, Batch 51, Loss: 0.0458
+2024-10-28 22:20:04,804 - INFO - Processing block 32 and 33
+2024-10-28 22:20:04,844 - INFO - Epoch 1/10, Batch 51, Loss: 0.0759
+2024-10-28 22:20:04,844 - INFO - Processing block 40 and 41
+2024-10-28 22:20:04,877 - INFO - Epoch 1/10, Batch 51, Loss: 0.0840
+2024-10-28 22:20:04,877 - INFO - Processing block 48 and 49
+2024-10-28 22:20:04,937 - INFO - Epoch 1/10, Batch 51, Loss: 0.0679
+2024-10-28 22:20:04,937 - INFO - Processing block 56 and 57
+2024-10-28 22:20:04,965 - INFO - Epoch 1/10, Batch 51, Loss: 0.1882
+2024-10-28 22:20:04,965 - INFO - Processing block 64 and 65
+2024-10-28 22:20:04,996 - INFO - Epoch 1/10, Batch 51, Loss: 0.0633
+2024-10-28 22:20:04,996 - INFO - Epoch 1/10, Batch 51, Average Loss: 0.1705
+2024-10-28 23:03:40,627 - INFO - Processing block 0 and 1
+2024-10-28 23:03:40,639 - INFO - Epoch 1/10, Batch 52, Loss: 0.0582
+2024-10-28 23:03:40,639 - INFO - Processing block 8 and 9
+2024-10-28 23:03:40,715 - INFO - Epoch 1/10, Batch 52, Loss: 0.0609
+2024-10-28 23:03:40,715 - INFO - Processing block 16 and 17
+2024-10-28 23:03:40,746 - INFO - Epoch 1/10, Batch 52, Loss: 0.1216
+2024-10-28 23:03:40,746 - INFO - Processing block 24 and 25
+2024-10-28 23:03:40,777 - INFO - Epoch 1/10, Batch 52, Loss: 0.0536
+2024-10-28 23:03:40,777 - INFO - Processing block 32 and 33
+2024-10-28 23:03:40,783 - INFO - Epoch 1/10, Batch 52, Loss: 0.0372
+2024-10-28 23:03:40,783 - INFO - Processing block 40 and 41
+2024-10-28 23:03:40,850 - INFO - Epoch 1/10, Batch 52, Loss: 0.1184
+2024-10-28 23:03:40,851 - INFO - Processing block 48 and 49
+2024-10-28 23:03:40,903 - INFO - Epoch 1/10, Batch 52, Loss: 0.0862
+2024-10-28 23:03:40,903 - INFO - Processing block 56 and 57
+2024-10-28 23:03:40,908 - INFO - Epoch 1/10, Batch 52, Loss: 0.0771
+2024-10-28 23:03:40,908 - INFO - Epoch 1/10, Batch 52, Average Loss: 0.1533
+2024-10-28 23:04:34,934 - INFO - Processing block 0 and 1
+2024-10-28 23:04:34,941 - INFO - Epoch 1/10, Batch 53, Loss: 0.0471
+2024-10-28 23:04:34,941 - INFO - Epoch 1/10, Batch 53, Average Loss: 0.0118
