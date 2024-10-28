@@ -2,6 +2,7 @@ TASK1: KD-tree
 TASK2: 跑成功，预测结果
 
 1.新增kd-tree，用compress在origin里面寻找最佳的点，compress_point=origin_point
+  很耗时
 2.训练集2张图片，train代码跑通，predict代码跑通。
   正式如下：
             数据集：
@@ -10,8 +11,12 @@ TASK2: 跑成功，预测结果
               切块：block_size=128,cube_size=1024，即8*8*8块，阈值筛选后，每个ply剩50-60块左右
             epoch：10
             batch_size = 8
+   
 
 
-
-  
+疑问：
+1.如果做坐标增强任务，在构造 model_input的时候
+  model_input = ME.SparseTensor(features=feats_B_tensor, coordinates=coords_B_tensor)
+  coordinates参数传入了坐标信息，
+  此时features是传入坐标信息还是色彩信息？
 
