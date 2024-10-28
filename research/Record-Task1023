@@ -13,7 +13,8 @@ TASK2: 跑成功，预测结果
               切块：block_size=128,cube_size=1024，即8*8*8块，阈值筛选后，每个ply剩50-60块左右
             epoch：10
             batch_size = 8
-   
+  loss见training_log.log
+  训练耗时较久
 
 
 疑问：
