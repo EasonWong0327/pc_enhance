@@ -231,10 +231,20 @@ def main(compress_dir, model_path, output_dir,
 
 if __name__ == "__main__":
     compress_dir = 'test30/compress'
-    model_path = '1_model.pth'
-    output_dir = 'test30/output'
-    block_size = 8  # 根据实际情况调整block大小
+    block_size = 64  # 根据实际情况调整block大小
     global_min = np.array([0.0, 0.0, 0.0])
     global_max = np.array([620.0, 1024.0, 662.0])
-    main(compress_dir, model_path, output_dir,
-         block_size=64, cube_size=1024, global_min=global_min, global_max=global_max)
+    cube_size = 1024  # 根据实际情况调整cube大小
+
+    # 获取所有以 "_model.pth" 结尾的模型文件
+    model_files = [f for f in os.listdir() if f.endswith('_model.pth')]
+
+    for model_file in model_files:
+        model_path = os.path.join(os.getcwd(), model_file)
+        output_dir = f"test30/{model_file}_output"
+        os.makedirs(output_dir, exist_ok=True)
+
+        # 调用 main 函数进行预测
+        main(compress_dir, model_path, output_dir,
+             block_size=block_size, cube_size=cube_size, global_min=global_min, global_max=global_max)
+
