@@ -13,7 +13,41 @@ import numpy as np
 from scipy.spatial import KDTree
 import pandas as pd
 import logging
+import argparse
 
+# 全局最小值和最大值
+global_min = np.array([0.0, 0.0, 0.0])
+global_max = np.array([620.0, 1024.0, 662.0])
+
+
+def normalize_coordinates(coords, global_min, global_max):
+    """
+    将坐标归一化到 [0, 1] 范围内。
+    """
+    return (coords - global_min) / (global_max - global_min)
+
+def process_chunks(adjusted_chunks_A, adjusted_chunks_B, global_min, global_max):
+    """
+    对 adjusted_chunks_A 和 adjusted_chunks_B 进行数据处理，并将坐标信息进行归一化。
+    """
+    normalized_chunks_A = []
+    normalized_chunks_B = []
+
+    for chunk_A, chunk_B in zip(adjusted_chunks_A, adjusted_chunks_B):
+        # 归一化 chunk_A 的坐标
+        coords_A = chunk_A[:, :3]
+        colors_A = chunk_A[:, 3:]
+        normalized_coords_A = normalize_coordinates(coords_A, global_min, global_max)
+        normalized_chunk_A = np.hstack((normalized_coords_A, colors_A))
+        normalized_chunks_A.append(normalized_chunk_A)
+
+        # 归一化 chunk_B 的坐标
+        coords_B = chunk_B[:, :3]
+        colors_B = chunk_B[:, 3:]
+        normalized_coords_B = normalize_coordinates(coords_B, global_min, global_max)
+        normalized_chunk_B = np.hstack((normalized_coords_B, colors_B))
+        normalized_chunks_B.append(normalized_chunk_B)
+    return normalized_chunks_A, normalized_chunks_B
 
 def remove_duplicates(points):
     """
@@ -97,7 +131,7 @@ def chunk_point_cloud_fixed_size(points, block_size=256, cube_size=1024, min_poi
     将点云数据切分为固定大小的块，支持可选偏移，并确保块的数量和大小一致。
     """
     points = torch.tensor(points, device=device, dtype=torch.float32)  # 使用 float32
-    coords, colors = points[:, :3], points[:, 3:]
+    coords = points[:, :3]
 
     min_points_threshold = int(block_size ** 3 * min_points_ratio)
 
@@ -117,65 +151,14 @@ def chunk_point_cloud_fixed_size(points, block_size=256, cube_size=1024, min_poi
                 )
 
                 block_coords = coords[mask]
-                block_colors = colors[mask]
                 if len(block_coords) >= min_points_threshold:
-                    block_points = torch.cat((block_coords, block_colors), dim=1)
-                    blocks.append((block_points.cpu().numpy(), (x.item(), y.item(), z.item())))
+                    blocks.append((block_coords.cpu().numpy(), (x.item(), y.item(), z.item())))
 
                 # 清理未使用的张量
-                del block_coords, block_colors
+                del block_coords
                 torch.cuda.empty_cache()
     print(f"总切块数: {len(blocks)}")  # 添加打印信息
     return blocks
-
-
-# def adjust_points(chunk_A, chunk_B, n_points):
-#     """
-#     调整chunk_A中的点以匹配chunk_B中的点，并确保没有重复点。
-#
-#     参数：
-#         chunk_A (np.ndarray): chunk A中的点数组 (N x 3或N x 6，具体取决于维度)。
-#         chunk_B (np.ndarray): chunk B中的点数组 (M x 3或M x 6)。
-#         n_points (int): 从chunk_A中选择的点数，以匹配chunk_B。
-#
-#     返回：
-#         np.ndarray: 调整后的chunk_A，包含与chunk_B最接近的n_points个唯一点。
-#     """
-#     if len(chunk_A) == 0:
-#         return np.empty((0, chunk_B.shape[1]))  # 返回空数组，保持维度一致
-#
-#     tree = KDTree(chunk_A)
-#     adjusted_indices = set()  # 用于跟踪在chunk_A中唯一索引的集合
-#
-#     # 遍历chunk_B中的点，寻找在chunk_A中最近的唯一点
-#     for point in chunk_B:
-#         distances, indices = tree.query(point, k=len(chunk_A))  # 获取chunk_A中所有点的排序距离
-#
-#         # 寻找最近的未使用点
-#         for index in indices:
-#             if index not in adjusted_indices:
-#                 adjusted_indices.add(index)
-#                 break
-#
-#         # 如果已选择足够的点，则停止
-#         if len(adjusted_indices) >= n_points:
-#             break
-#
-#     # 将索引转换为列表并选择相应的点
-#     adjusted_chunk_A = chunk_A[list(adjusted_indices)]
-#
-#     # 确保结果恰好有n_points个点（如有必要进行填充）
-#     if len(adjusted_chunk_A) < n_points:
-#         remaining_indices = list(set(range(len(chunk_A))) - adjusted_indices)
-#         if remaining_indices:  # 检查是否还有剩余的索引可用
-#             additional_indices = np.random.choice(
-#                 remaining_indices,
-#                 n_points - len(adjusted_chunk_A),
-#                 replace=False
-#             )
-#             adjusted_chunk_A = np.vstack([adjusted_chunk_A, chunk_A[additional_indices]])
-#
-#     return adjusted_chunk_A
 
 
 def adjust_points(chunk_A, chunk_B):
@@ -212,7 +195,7 @@ def adjust_points(chunk_A, chunk_B):
     return adjusted_chunk_A
 
 class PointCloudDataset(Dataset):
-    def __init__(self, folder_A, folder_B, block_size=256, cube_size=1024,min_points_ratio=0.1):
+    def __init__(self,folder_A, folder_B, block_size=256, cube_size=1024,min_points_ratio=0.1,mode='full'):
         """
         初始化数据集，并确保文件编号匹配。
         :param folder_A: 原始点云A的文件夹路径
@@ -224,6 +207,7 @@ class PointCloudDataset(Dataset):
         self.block_size = block_size
         self.cube_size = cube_size
         self.min_points_ratio = min_points_ratio
+        self.mode = mode
 
         if not self.files_A:
             print("没有找到匹配的文件对，请检查文件名和路径是否正确！")
@@ -267,34 +251,37 @@ class PointCloudDataset(Dataset):
         file_A, file_B = self.files_A[idx]
         points_A = self.load_ply(file_A)
         points_B = self.load_ply(file_B)
-        # 压缩后的ply有坐标重复
+
+        # 1.数据清洗：去除重复坐标   压缩后的ply有坐标重复
         check_compress = has_duplicates(points_B)
         if check_compress:
             points_B = remove_duplicates(points_B)
             # debug用
             # has_dup, duplicates = has_duplicates_output(points_B)
             # print(duplicates)
+        # 2.数据切块
         chunks_A = chunk_point_cloud_fixed_size(points_A, self.block_size, self.cube_size, self.min_points_ratio)
         chunks_B = chunk_point_cloud_fixed_size(points_B, self.block_size, self.cube_size, self.min_points_ratio)
-        print(f"文件对 {idx}： A 切块数: {len(chunks_A)}，B 切块数: {len(chunks_B)}")  # 添加打印信息
+        print(f"文件对 {idx}： A 切块数: {len(chunks_A)}，B 切块数: {len(chunks_B)}")
+
+        if self.mode != 'full':
+            chunks_A = chunks_A[0:8]
+            chunks_B = chunks_B[0:8]
+
+        # 3.kd-tree匹配
         adjusted_chunks_A = []
         adjusted_chunks_B = []
-
         for (chunk_A, index_A), (chunk_B, index_B) in zip(chunks_A, chunks_B):
             if index_A == index_B:
-                print('未补齐之前chunk_B是否有重复：',has_duplicates(chunk_B))
+                print('初始Chunk_B是否有重复：',has_duplicates(chunk_B))
                 # 根据chunk的大小调整A或B
                 if len(chunk_A) < len(chunk_B):
-                    # adjusted_chunk_B = adjust_points(chunk_B, chunk_A, n_points=len(chunk_A)) # 调整B以匹配A
                     adjusted_chunk_B = adjust_points(chunk_B, chunk_A) # 调整B以匹配A
-                    print(
-                        f"调整前的 chunk_B 点数: {chunk_B.shape[0]}，调整后的点数: {adjusted_chunk_B.shape[0]}，chunk_A的点数: {chunk_A.shape[0]}")
-
+                    print(f"调整前的 chunk_B 点数: {chunk_B.shape[0]}，调整后的点数: {adjusted_chunk_B.shape[0]}，chunk_A的点数: {chunk_A.shape[0]}")
                     adjusted_chunks_B.append(adjusted_chunk_B)
                     adjusted_chunks_A.append(chunk_A)
                 else:
                     start_time = time.time()
-                    # adjusted_chunk_A = adjust_points(chunk_A, chunk_B, n_points=len(chunk_B))
                     adjusted_chunk_A = adjust_points(chunk_A, chunk_B)
                     end_time = time.time()
                     elapsed_time = end_time - start_time
@@ -302,6 +289,8 @@ class PointCloudDataset(Dataset):
                     print(f"调整前的 chunk_A 点数: {chunk_A.shape[0]}，调整后的点数: {adjusted_chunk_A.shape[0]}，chunk_B的点数: {chunk_B.shape[0]}")
                     adjusted_chunks_A.append(adjusted_chunk_A)
                     adjusted_chunks_B.append(chunk_B)
+
+
         if not adjusted_chunks_A or not adjusted_chunks_B:
             print(f"第 {idx} 对文件没有找到匹配的块，A: {len(adjusted_chunks_A)} 块, B: {len(adjusted_chunks_B)} 块.")
             return None
@@ -309,8 +298,11 @@ class PointCloudDataset(Dataset):
               "其中一块的形状:", adjusted_chunks_A[0].shape)
         print('-------------------------------开始打印每块的点数------------------------')
         for i in range(len(adjusted_chunks_A)):
-            print(f'第{i}块: ', adjusted_chunks_A[i].shape)
+            print(f'第{i}块: ', adjusted_chunks_A[i].shape, adjusted_chunks_B[i].shape)
 
+        # normalized_chunks_A, normalized_chunks_B = process_chunks(adjusted_chunks_A, adjusted_chunks_B, global_min,
+        #                                                           global_max)
+        # return (normalized_chunks_A, normalized_chunks_B)
         return (adjusted_chunks_A, adjusted_chunks_B)
 
     def load_ply(self, file_path):
@@ -320,19 +312,22 @@ class PointCloudDataset(Dataset):
         points = np.asarray(pcd.points)
         colors = np.asarray(pcd.colors)
         print(f"加载点数量：{points.shape[0]}")
-        return np.hstack((points, colors))
+        return points
+
+        # # 坐标增强，不需要色彩
+        # return np.hstack((points, colors))
 
 
-def save_point_cloud_as_ply(coords, feats, filename):
+def save_point_cloud_as_ply(coords, colours, filename):
     """
     将点云数据保存为 PLY 文件。
     :param coords: (N, 3) 点云坐标
-    :param feats: (N, 3) RGB 颜色
+    :param colours: (N, 3) RGB 颜色
     :param filename: 要保存的 PLY 文件名
     """
     pcd = o3d.geometry.PointCloud()
     pcd.points = o3d.utility.Vector3dVector(coords)
-    pcd.colors = o3d.utility.Vector3dVector(feats / 255.0)  # 归一化颜色
+    pcd.colors = o3d.utility.Vector3dVector(colours / 255.0)  # 归一化颜色
 
     # 保存为 PLY 文件
     o3d.io.write_point_cloud(filename, pcd)
@@ -362,134 +357,160 @@ class MyTestNet(ME.MinkowskiNetwork):
         out = self.relu1(out)
         return out
 
+def position_loss(pred, target):
+    if isinstance(pred, ME.SparseTensor) and isinstance(target, ME.SparseTensor):
+        # 使用稀疏张量的密集特征进行损失计算
+        return torch.nn.functional.mse_loss(pred.F, target.F)
+    else:
+        # 假设 pred 和 target 都是普通张量
+        return torch.nn.functional.mse_loss(pred, target)
 
-if __name__ == '__main__':
-    dataset = PointCloudDataset(folder_A='./data/original',
-                                folder_B='./data/compress',
-                                block_size = 128,
+def train_model(model, data_loader, optimizer, device='cuda', epochs=10, blocks_per_epoch=8):
+
+    log_file = 'training_log.log'
+    logging.basicConfig(filename=log_file, level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+    logger = logging.getLogger()
+
+    model = model.to(device)
+    model.train()
+
+    for epoch in range(epochs):
+        total_loss = 0
+        num_batches = 0
+        block_buffer_A, block_buffer_B = [], []
+
+        for (chunks_A, chunks_B) in data_loader:
+            block_buffer_A.extend(chunks_A)
+            block_buffer_B.extend(chunks_B)
+
+            if len(block_buffer_A) >= blocks_per_epoch:
+                # 每N个块进行处理
+                for i in range(0, len(block_buffer_A), 8):  # 每8个块合并成一个批次
+                    if i + 7 >= len(block_buffer_A) or i + 7 >= len(block_buffer_B):
+                        break
+                    logger.info(f"Processing blocks {i} to {i + 7}")
+                    # 提取坐标并合并
+                    coords_A_batch = []
+                    coords_B_batch = []
+                    for j in range(blocks_per_epoch):
+                        coords_A_batch.append(block_buffer_A[i + j][0, :, :3])
+                        coords_B_batch.append(block_buffer_B[i + j][0, :, :3])
+
+                    # 确保 coords_A_batch 和 coords_B_batch 是 float64 类型
+                    coords_A_batch = [coord.float() for coord in coords_A_batch]
+                    coords_B_batch = [coord.float() for coord in coords_B_batch]
+
+                    coords_A_batch = torch.cat(coords_A_batch, dim=0)
+                    coords_B_batch = torch.cat(coords_B_batch, dim=0)
+
+                    # 合并坐标，确保数据类型为 float64
+                    coords_A_tensor = ME_utils.batched_coordinates([coords_A_batch.view(-1, 3)],
+                                                                   device=device)#.double()  # 转换为 float64
+                    coords_B_tensor = ME_utils.batched_coordinates([coords_B_batch.view(-1, 3)],
+                                                                   device=device)#.double()  # 转换为 float64
+                    # coords_A_tensor = ME_utils.batched_coordinates([coords_A_batch],
+                    #                                                device=device).double()  # 转换为 float64
+                    # coords_B_tensor = ME_utils.batched_coordinates([coords_B_batch],
+                    #                                                device=device).double()  # 转换为 float64
+                    # 使用坐标作为特征
+                    features_A = normalize_coordinates(coords_A_batch.numpy(), global_min, global_max)
+                    features_B = normalize_coordinates(coords_B_batch.numpy(), global_min, global_max)
+
+                    # Convert back to tensor
+                    features_A = torch.tensor(features_A, dtype=torch.float32).to(device)
+                    features_B = torch.tensor(features_B, dtype=torch.float32).to(device)
+
+
+                    origin = ME.SparseTensor(features=features_A, coordinates=coords_A_tensor)
+
+                    # 构造 SparseTensor
+                    input_x = ME.SparseTensor(features=features_B, coordinates=coords_B_tensor)
+
+                    # print('????????????')
+                    # print(input_x)
+                    # print(origin)
+
+                    # 确保 new_x 是 float32 类型
+                    input_x = ME.SparseTensor(
+                        features=input_x.F.float(),
+                        coordinates=input_x.C,
+                        coordinate_manager=input_x.coordinate_manager
+                    )
+                    print('shape_check:', input_x.shape, origin.shape)
+
+                    # 如果形状不一致，裁剪形状
+                    if input_x.shape[0] != origin.shape[0]:
+                        min_shape = min(input_x.shape[0], origin.shape[0])
+                        input_x = ME.SparseTensor(
+                            features=input_x.F[:min_shape].float(),
+                            coordinates=input_x.C[:min_shape],
+                            coordinate_manager=input_x.coordinate_manager
+                        )
+                        origin = ME.SparseTensor(
+                            features=origin.F[:min_shape].float(),
+                            coordinates=origin.C[:min_shape],
+                            coordinate_manager=origin.coordinate_manager
+                        )
+
+                    optimizer.zero_grad()
+                    output = model(input_x)
+
+                    # 计算损失 模型output与origin进行计算
+                    loss = position_loss(output.F.float(), origin.F.float())
+                    total_loss += loss.item()
+
+                    loss.backward()
+                    optimizer.step()
+                    batch_loss_log = f"Epoch {epoch + 1}/{epochs}, Batch {num_batches + 1}, Loss: {loss.item():.4f}"
+                    logger.info(batch_loss_log)
+
+                avg_loss = total_loss / (blocks_per_epoch // 2)
+                avg_loss_log = f"Epoch {epoch + 1}/{epochs}, Batch {num_batches + 1}, Average Loss: {avg_loss:.4f}"
+                logger.info(avg_loss_log)
+
+                # 清空缓冲区
+                block_buffer_A.clear()
+                block_buffer_B.clear()
+                total_loss = 0
+                num_batches += 1
+
+        # 保存模型权重
+        save_path = str(epoch) + '_model.pth'
+        torch.save(model.state_dict(), save_path)
+        print(f"Model saved at epoch {epoch + 1} to {save_path}")
+        model_save_log = f"Model saved at epoch {epoch + 1} to {save_path}"
+        logger.info(model_save_log)
+
+def main(mode):
+    if mode == 'test':
+        folder_A = './data_sample/original'
+        folder_B = './data_sample/compress'
+    elif mode == 'full':
+        folder_A = './data30/original'
+        folder_B = './data30/compress'
+    else:
+        raise ValueError("Invalid mode. Use 'test' or 'full'.")
+    dataset = PointCloudDataset(folder_A=folder_A,
+                                folder_B=folder_B,
+                                block_size = 64,
                                 cube_size = 1024,
-                                min_points_ratio=0.0001
+                                min_points_ratio=0.00001,
+                                mode=mode
                                 )
 
     data_loader = DataLoader(dataset, batch_size=1)
-
-
-    # -----------------------------run train test -------------------------------
-    # -----------------------------要去服务器执行，本地Windows没装ME -------------------------------
-    def position_loss(pred, target):
-        if isinstance(pred, ME.SparseTensor) and isinstance(target, ME.SparseTensor):
-            # 使用稀疏张量的密集特征进行损失计算
-            return torch.nn.functional.mse_loss(pred.F, target.F)
-        else:
-            # 假设 pred 和 target 都是普通张量
-            return torch.nn.functional.mse_loss(pred, target)
-
-
-    def train_model(model, data_loader, optimizer, device='cuda', epochs=10, blocks_per_epoch=1):
-
-        log_file = 'training_log.log'
-        logging.basicConfig(filename=log_file, level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-        logger = logging.getLogger()
-
-        model = model.to(device)
-        model.train()
-
-        for epoch in range(epochs):
-            total_loss = 0
-            num_batches = 0
-            block_buffer_A, block_buffer_B = [], []
-
-            for (chunks_A, chunks_B) in data_loader:
-                block_buffer_A.extend(chunks_A)
-                block_buffer_B.extend(chunks_B)
-
-                if len(block_buffer_A) >= blocks_per_epoch:
-                    # 每N个块进行处理
-                    for i in range(0, len(block_buffer_A), blocks_per_epoch):
-                        if i + 1 >= len(block_buffer_A) or i + 1 >= len(block_buffer_B):
-                            # print(f"Skipping block {i + 1} as it exceeds buffer length.")
-                            break
-
-                        # print(block_buffer_A[i].shape, block_buffer_B[i].shape)
-                        logger.info(f"Processing block {i} and {i + 1}")
-
-                        # 提取坐标和特征
-                        coords_A1, feats_A1 = block_buffer_A[i][0, :, :3], block_buffer_A[i][0, :, 3:]
-                        coords_A2, feats_A2 = block_buffer_A[i + 1][0, :, :3], block_buffer_A[i + 1][0, :, 3:]
-                        coords_B1, feats_B1 = block_buffer_B[i][0, :, :3], block_buffer_B[i][0, :, 3:]
-                        coords_B2, feats_B2 = block_buffer_B[i + 1][0, :, :3], block_buffer_B[i + 1][0, :, 3:]
-
-                        # print('coords_A1_shape:', coords_A1.shape, coords_A2.shape, coords_B1.shape, coords_B2.shape)
-
-                        # 合并坐标和特征
-                        coords_A_tensor = ME_utils.batched_coordinates([coords_A1.view(-1, 3), coords_A2.view(-1, 3)],
-                                                                       device=device)
-                        feats_A_tensor = torch.cat([feats_A1, feats_A2]).to(device).float()
-
-                        coords_B_tensor = ME_utils.batched_coordinates([coords_B1.view(-1, 3), coords_B2.view(-1, 3)],
-                                                                       device=device)
-                        feats_B_tensor = torch.cat([feats_B1, feats_B2]).to(device).float()
-
-                        # print('coords_AB_tensor_shape:', coords_A_tensor.shape, coords_B_tensor.shape)
-                        # print('feats_AB_tensor_shape:', feats_A_tensor.shape, feats_B_tensor.shape)
-
-                        # 确保行数一致
-                        assert feats_B_tensor.shape[0] == coords_B_tensor.shape[
-                            0], "Feature and coordinates row count must match!"
-                        assert feats_A_tensor.shape[0] == coords_A_tensor.shape[
-                            0], "Feature and coordinates row count must match!"
-
-                        origin = ME.SparseTensor(features=feats_A_tensor, coordinates=coords_A_tensor)
-                        # print('model_origin_shape:', origin.shape)
-
-                        # 构造 SparseTensor
-                        x = ME.SparseTensor(features=feats_B_tensor, coordinates=coords_B_tensor)
-                        # print('model_input_x_shape:', x.shape, type(x))
-
-                        # 确保 new_x 是 float32 类型
-                        x = ME.SparseTensor(
-                            features=x.F.float(),
-                            coordinates=x.C,
-                            coordinate_manager=x.coordinate_manager
-                        )
-
-                        optimizer.zero_grad()
-                        output = model(x)
-
-                        # # 计算残差并合并输出
-                        # residual = output.F.float() - feats_B_tensor.float()
-                        # combined_output = output.F + residual
-
-                        # 计算损失 模型output与origin进行计算
-                        loss = position_loss(output.F.float(), origin.F.float())
-                        total_loss += loss.item()
-
-                        loss.backward()
-                        optimizer.step()
-                        batch_loss_log = f"Epoch {epoch + 1}/{epochs}, Batch {num_batches + 1}, Loss: {loss.item():.4f}"
-                        logger.info(batch_loss_log)
-
-                    avg_loss = total_loss / (blocks_per_epoch // 2)
-                    avg_loss_log = f"Epoch {epoch + 1}/{epochs}, Batch {num_batches + 1}, Average Loss: {avg_loss:.4f}"
-                    logger.info(avg_loss_log)
-
-                    # 清空缓冲区
-                    block_buffer_A.clear()
-                    block_buffer_B.clear()
-                    total_loss = 0
-                    num_batches += 1
-            # 保存模型权重
-            save_path = str(epoch) + '_model.pth'
-            torch.save(model.state_dict(), save_path)
-            print(f"Model saved at epoch {epoch + 1} to {save_path}")
-            model_save_log = f"Model saved at epoch {epoch + 1} to {save_path}"
-            logger.info(model_save_log)
-
     # model = MyNet()
-
     model = MyTestNet()
     model = model.float()
     optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
 
     # 训练模型
-    train_model(model, data_loader, optimizer,epochs=1,blocks_per_epoch=8)
+    train_model(model, data_loader, optimizer,epochs=10,blocks_per_epoch=8)
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description="Run training or testing mode.")
+    parser.add_argument("mode", choices=["test", "full"], help="Mode to run: 'test' or 'full'")
+    args = parser.parse_args()
+
+    main(args.mode)
