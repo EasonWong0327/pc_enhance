@@ -379,7 +379,7 @@ class MyDeepNet(nn.Module):
 
         # 最后的卷积层输出
         self.conv_out = ME.MinkowskiConvolution(2048, out_channels, kernel_size=1, dimension=3)
-        self.relu = ME.MinkowskiSigmoid()
+        self.relu = ME.MinkowskiReLU()
 
     def forward(self, x):
         # 第一层卷积
@@ -470,10 +470,13 @@ def train_model(model, data_loader, optimizer,device='cuda', epochs=10, blocks_p
                     features_A = torch.tensor(features_A, dtype=torch.float32).to(device)
                     features_B = torch.tensor(features_B, dtype=torch.float32).to(device)
 
-                    origin = ME.SparseTensor(features=features_A, coordinates=coords_A_tensor)
+                    # 创建一个坐标管理器
+                    coordinate_manager = ME.CoordinateManager(D=3)
+
+                    origin = ME.SparseTensor(features=features_A, coordinates=coords_A_tensor, coordinate_manager=coordinate_manager)
 
                     # 构造 SparseTensor
-                    input_x = ME.SparseTensor(features=features_B, coordinates=coords_B_tensor)
+                    input_x = ME.SparseTensor(features=features_B, coordinates=coords_B_tensor, coordinate_manager=coordinate_manager)
 
                     # 确保 new_x 是 float32 类型
                     input_x = ME.SparseTensor(
@@ -488,23 +491,27 @@ def train_model(model, data_loader, optimizer,device='cuda', epochs=10, blocks_p
                         inputs = ME.SparseTensor(
                             features=input_x.F[:min_shape].float(),
                             coordinates=input_x.C[:min_shape],
+                            coordinate_manager=input_x.coordinate_manager
+
                         )
                         origin = ME.SparseTensor(
                             features=origin.F[:min_shape].float(),
                             coordinates=origin.C[:min_shape],
+                            coordinate_manager=origin.coordinate_manager
+
                         )
                     else:
                         inputs = input_x
 
                     # 计算损失
                     output = model(inputs)
-
                     # 计算残差
-                    residual = output - inputs
+                    residual = origin.F - inputs.F
+                    print(output.shape,origin.shape,input_x.shape,residual.shape)
 
                     # 计算损失
-                    loss = position_loss(residual.F.float(), origin.F.float())
-                    print(inputs.F.float(),output.F.float(), origin.F.float())
+                    loss = position_loss(output.F.float(), residual.float())
+                    print(output.F.float(), residual.float())
                     # 累加损失
                     total_loss += loss.item()
                     num_batches += 1
@@ -524,10 +531,11 @@ def train_model(model, data_loader, optimizer,device='cuda', epochs=10, blocks_p
         epoch_losses.append(avg_loss)
         print(epoch_losses)
 
-        # 保存模型权重
-        save_path = './model/my_net_residual/' + str(epoch) + '_model_residual.pth'
-        torch.save(model.state_dict(), save_path)
-        logger.info(f"Model saved at epoch {epoch + 1} to {save_path}")
+        # 每第10个epoch保存模型权重
+        if (epoch + 1) % 10 == 0:
+            save_path = './model/my_net_residual/' + str(epoch + 1) + '_model_residual.pth'
+            torch.save(model.state_dict(), save_path)
+            logger.info(f"Model saved at epoch {epoch + 1} to {save_path}")
 
     # 训练完成后，绘制损失-epoch图
     plt.figure(figsize=(10, 6))
@@ -587,7 +595,7 @@ def main(mode):
 
     model.apply(weights_init)
     model = model.float()
-    optimizer = torch.optim.Adam(model.parameters(), lr=0.0001)
+    optimizer = torch.optim.Adam(model.parameters(), lr=0.00001)
 
     # 训练模型
     train_model(model, data_loader, optimizer,epochs=100,blocks_per_epoch=8)
